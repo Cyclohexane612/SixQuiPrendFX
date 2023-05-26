@@ -37,8 +37,8 @@ public class HelloController {
     public void confirmAIOpponents(ActionEvent actionEvent) throws IOException {
         numberOfAI.setVisible(false);
         Stage stage = (Stage) confirmIA.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("game.fxml"));
-        Scene scene = new Scene(root, 600, 400);
-        stage.setScene(scene);
+        Parent root = FXMLLoader.<Parent>load(getClass().getResource("game.fxml"));
+        Scene scene1 = new Scene(root, 900, 700);
+        stage.setScene(scene1);
     }
 }

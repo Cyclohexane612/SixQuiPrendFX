@@ -6,9 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="6d9d00df-c3ac-468f-8d0d-2c03acabc08a" name="Changes" comment="Demander le nom">
       <change afterPath="$PROJECT_DIR$/src/main/java/com/example/sixquiprend/GameController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/sixquiprend/game.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sixquiprend/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sixquiprend/HelloController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/sixquiprend/game.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/sixquiprend/game.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/sixquiprend/title_screen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/sixquiprend/title_screen.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
