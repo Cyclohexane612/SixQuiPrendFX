@@ -1,4 +1,10 @@
 package com.example.sixquiprend;
 
-public class IA extends Player{
+import java.util.List;
+
+public class IA extends AbstractPlayer{
+
+    public IA(String name){
+        super(name);
+    }
 }

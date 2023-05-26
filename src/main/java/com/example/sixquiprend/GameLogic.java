@@ -9,7 +9,7 @@ public class GameLogic {
     public class Game {
         static Scanner scanner = new Scanner(System.in);
         Player player1 = new Player("Luc");
-        Player player2 = new Player("Maxence");
+        Player player2 = new Player("Maxence" );
         List<Card> row1 = new ArrayList<>();
         List<Card> row2 = new ArrayList<>();
         List<Card> row3 = new ArrayList<>();
