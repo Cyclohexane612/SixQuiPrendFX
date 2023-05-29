@@ -4,24 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6d9d00df-c3ac-468f-8d0d-2c03acabc08a" name="Changes" comment="Première scène fini">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/sixquiprend/TestApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sixquiprend/AbstractPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sixquiprend/AbstractPlayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sixquiprend/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sixquiprend/Card.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sixquiprend/GameLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sixquiprend/GameLogic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sixquiprend/IA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sixquiprend/IA.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sixquiprend/MainApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sixquiprend/MainApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sixquiprend/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sixquiprend/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/sixquiprend/title_screen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/sixquiprend/title_screen.fxml" afterDir="false" />
-    </list>
-    <list id="d0f439ed-a6bd-41ec-ba60-ed53aa94b5d2" name="Changes by ayman" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sixquiprend/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sixquiprend/Board.java" afterDir="false" />
-    </list>
-    <list id="ebbbb990-de72-4c06-b868-931a103f880e" name="Changes by luc" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sixquiprend/AbstractPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sixquiprend/AbstractPlayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sixquiprend/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sixquiprend/GameController.java" afterDir="false" />
-    </list>
+    <list default="true" id="6d9d00df-c3ac-468f-8d0d-2c03acabc08a" name="Changes" comment="17/05 1" />
+    <list id="d0f439ed-a6bd-41ec-ba60-ed53aa94b5d2" name="Changes by ayman" comment="Changes by ayman" />
+    <list id="ebbbb990-de72-4c06-b868-931a103f880e" name="Changes by luc" comment="Changes by luc" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -37,15 +22,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/src/main/java/com/example/sixquiprend/AbstractPlayer.java">
-      <ranges>
-        <range start1="9" end1="10" start2="9" end2="10" changelist="6d9d00df-c3ac-468f-8d0d-2c03acabc08a" />
-        <range start1="15" end1="16" start2="15" end2="16" changelist="6d9d00df-c3ac-468f-8d0d-2c03acabc08a" />
-        <range start1="24" end1="26" start2="24" end2="24" changelist="ebbbb990-de72-4c06-b868-931a103f880e" />
-      </ranges>
-    </file>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -116,7 +92,7 @@
       <workItem from="1685107185264" duration="858000" />
       <workItem from="1685108104539" duration="97000" />
       <workItem from="1685108235739" duration="1443000" />
-      <workItem from="1685369101454" duration="4587000" />
+      <workItem from="1685369101454" duration="4822000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1683893490932</created>
@@ -146,7 +122,28 @@
       <option name="project" value="LOCAL" />
       <updated>1685113306390</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="17/05 1">
+      <created>1685373901082</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1685373901082</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Changes by ayman">
+      <created>1685373910129</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1685373910129</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Changes by luc">
+      <created>1685373919026</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1685373919026</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -157,6 +154,9 @@
     <MESSAGE value="Première interface" />
     <MESSAGE value="Demander le nom" />
     <MESSAGE value="Première scène fini" />
-    <option name="LAST_COMMIT_MESSAGE" value="Première scène fini" />
+    <MESSAGE value="17/05 1" />
+    <MESSAGE value="Changes by ayman" />
+    <MESSAGE value="Changes by luc" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changes by luc" />
   </component>
 </project>
