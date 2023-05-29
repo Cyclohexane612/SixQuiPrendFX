@@ -7,13 +7,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public abstract class AbstractPlayer {
-    @Getter
+    @Getter @Setter
     private String name;
     @Getter @Setter
     private List<Card> hand;
     @Getter @Setter
     private List<Card> discard;
-    @Getter
+    @Getter @Setter
     private int tdb;
 
     public AbstractPlayer(String name) {

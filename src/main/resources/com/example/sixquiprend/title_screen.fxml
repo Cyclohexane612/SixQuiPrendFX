@@ -33,7 +33,7 @@
             </VBox>
             <StackPane alignment="CENTER" xmlns:fx="http://javafx.com/fxml">
                 <VBox fx:id="name" alignment="CENTER" spacing="10" visible="false">
-                    <Label text="What's your name, Wizard?" textFill="WHITE" />
+                    <Label text="What's your name?" textFill="WHITE" />
                     <Button contentDisplay="CENTER" onAction="#confirmName" prefHeight="26.0" prefWidth="74.0" text="Confirm" textAlignment="CENTER" />
                     <TextField fx:id="nameField" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="240.0" promptText="Name" />
                 </VBox>

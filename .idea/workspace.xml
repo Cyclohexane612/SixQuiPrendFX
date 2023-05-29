@@ -5,8 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6d9d00df-c3ac-468f-8d0d-2c03acabc08a" name="Changes" comment="Première scène fini">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sixquiprend/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sixquiprend/Board.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/sixquiprend/TestApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sixquiprend/AbstractPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sixquiprend/AbstractPlayer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sixquiprend/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sixquiprend/Card.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sixquiprend/GameLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sixquiprend/GameLogic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sixquiprend/IA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sixquiprend/IA.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sixquiprend/MainApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sixquiprend/MainApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sixquiprend/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sixquiprend/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/sixquiprend/title_screen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/sixquiprend/title_screen.fxml" afterDir="false" />
+    </list>
+    <list id="d0f439ed-a6bd-41ec-ba60-ed53aa94b5d2" name="Changes by ayman" comment="">
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sixquiprend/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sixquiprend/Board.java" afterDir="false" />
+    </list>
+    <list id="ebbbb990-de72-4c06-b868-931a103f880e" name="Changes by luc" comment="">
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sixquiprend/AbstractPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sixquiprend/AbstractPlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sixquiprend/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sixquiprend/GameController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,6 +38,15 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/src/main/java/com/example/sixquiprend/AbstractPlayer.java">
+      <ranges>
+        <range start1="9" end1="10" start2="9" end2="10" changelist="6d9d00df-c3ac-468f-8d0d-2c03acabc08a" />
+        <range start1="15" end1="16" start2="15" end2="16" changelist="6d9d00df-c3ac-468f-8d0d-2c03acabc08a" />
+        <range start1="24" end1="26" start2="24" end2="24" changelist="ebbbb990-de72-4c06-b868-931a103f880e" />
+      </ranges>
+    </file>
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -40,23 +63,44 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/maxen/IdeaProjects/HarryPotterAtHomeJava",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/resources/image" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="MainApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.sixquiprend.MainApplication" />
+      <module name="SixQuiPrend" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.sixquiprend.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.MainApplication" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -72,6 +116,7 @@
       <workItem from="1685107185264" duration="858000" />
       <workItem from="1685108104539" duration="97000" />
       <workItem from="1685108235739" duration="1443000" />
+      <workItem from="1685369101454" duration="4587000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1683893490932</created>

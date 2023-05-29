@@ -123,6 +123,62 @@ public class GameLogic {
             }
             return cards;
         }
+        public void distribution(List<Card> playedCards){
+            playedCards=sortCards(playedCards);
+            for (Card card:playedCards){
+                int num = card.getNumber();
+                int dif1 = num - row1.get(row1.size()-1).getNumber();
+                int dif2 = num - row2.get(row2.size()-1).getNumber();
+                int dif3 = num - row3.get(row3.size()-1).getNumber();
+                int dif4 = num - row4.get(row4.size()-1).getNumber();
+                if (dif1<0 & dif2<0 & dif3<0 & dif4<0){
+                    //choisit la pile puis prends les cartes de cette derniere
+                }
+                else{
+                    if (dif1<dif2 & dif1<dif3 & dif1<dif4 & dif1>0){
+                        if (row1.size()==4){
+                            card.getPlayer().getDiscard().addAll(row1);
+                            row1.clear();
+                            row1.add(card);
+                        }
+                        else{
+                            row1.add(card);
+                        }
+                    }
+                    if (dif2<dif3 & dif2<dif3 & dif2<dif4 & dif2>0){
+                        if (row2.size()==4){
+                            card.getPlayer().getDiscard().addAll(row2);
+                            row2.clear();
+                            row2.add(card);
+                        }
+                        else{
+                            row2.add(card);
+                        }
+                    }
+                    if (dif3<dif2 & dif3<dif1 & dif3<dif4 & dif3>0){
+                        if (row3.size()==4){
+                            card.getPlayer().getDiscard().addAll(row3);
+                            row3.clear();
+                            row3.add(card);
+                        }
+                        else{
+                            row3.add(card);
+                        }
+                    }
+                    if (dif4<dif2 & dif4<dif3 & dif4<dif1 & dif4>0){
+                        if (row4.size()==4){
+                            card.getPlayer().getDiscard().addAll(row4);
+                            row4.clear();
+                            row4.add(card);
+                        }
+                        else{
+                            row4.add(card);
+                        }
+                    }
+                }
+            }
+            playedCards.clear();
+        }
     }
 
 }
