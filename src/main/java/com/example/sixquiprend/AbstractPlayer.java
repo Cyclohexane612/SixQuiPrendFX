@@ -22,6 +22,4 @@ public abstract class AbstractPlayer {
         this.discard = new ArrayList<Card>();
         this.tdb = 0;
     }
-
-
 }
