@@ -25,6 +25,7 @@ public class TestApplication extends Application{
         }
         // Créez une scène et affichez-la
         Scene scene = new Scene(cardPane);
+        primaryStage.setMaximized(true);
         primaryStage.setScene(scene);
         primaryStage.show();
     }

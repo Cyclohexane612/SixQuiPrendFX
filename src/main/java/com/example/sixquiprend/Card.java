@@ -95,7 +95,6 @@ public class Card {
         // Changer la police
         Font font = Font.font("Arial", FontWeight.BOLD, 24);
         numberLabel.setFont(font);
-
         // Changer la couleur
         numberLabel.setTextFill(Color.PURPLE);
     }

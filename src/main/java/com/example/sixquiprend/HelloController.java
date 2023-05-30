@@ -38,12 +38,14 @@ public class HelloController {
     }
 
     @FXML
-    public void confirmName(ActionEvent actionEvent) {
+    public String confirmName(ActionEvent actionEvent) {
         name.setVisible(false);
         numberOfAI.setVisible(true);
         String playerName = nameField.getText();
         System.out.println("Player name: " + playerName);
+        return playerName;
     }
+
 
     @FXML
     public void confirmAIOpponents(ActionEvent actionEvent) throws IOException {
@@ -60,6 +62,7 @@ public class HelloController {
         System.out.println("Number of AI opponents: " + aiOpponents);
 
         Scene scene = new Scene(root, 900, 700);
+        stage.setMaximized(true);
         stage.setScene(scene);
     }
 }
