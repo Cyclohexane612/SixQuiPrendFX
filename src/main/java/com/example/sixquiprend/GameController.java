@@ -1,6 +1,5 @@
 package com.example.sixquiprend;
 
-
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
