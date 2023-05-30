@@ -77,7 +77,6 @@ public class Card {
             image.setBackground(new Background(new BackgroundFill(Color.WHITE, null, null)));
         }
     }
-
     public void configureTdbImages() {
         if (tdb > 0) {
             String tdbImagePath = getClass().getResource("/image/tdb.png").toExternalForm();

@@ -64,5 +64,7 @@ public class HelloController {
         Scene scene = new Scene(root, 900, 700);
         stage.setMaximized(true);
         stage.setScene(scene);
+        stage.setFullScreen(true); // Ajout de cette ligne pour mettre en plein écran
     }
+
 }

@@ -15,14 +15,11 @@ public abstract class AbstractPlayer {
     private List<Card> discard;
     @Getter @Setter
     private int tdb;
-    @Getter @Setter
-    private int lastCard;
 
     public AbstractPlayer(String name) {
         this.name = name;
         this.hand = new ArrayList<Card>();
         this.discard = new ArrayList<Card>();
         this.tdb = 0;
-        this.lastCard =0;
     }
 }

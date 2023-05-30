@@ -10,13 +10,10 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sixquiprend/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sixquiprend/Card.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sixquiprend/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sixquiprend/GameController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sixquiprend/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sixquiprend/HelloController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sixquiprend/MainApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sixquiprend/MainApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sixquiprend/TestApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sixquiprend/TestApplication.java" afterDir="false" />
-    </list>
-    <list id="1e6ff9d8-57be-4b4f-a9ca-fb35b5eaeba6" name="Changes by ayman" comment="" />
-    <list id="ebbbb990-de72-4c06-b868-931a103f880e" name="Changes by luc" comment="">
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/sixquiprend/game.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/sixquiprend/game.fxml" afterDir="false" />
     </list>
+    <list id="d0f439ed-a6bd-41ec-ba60-ed53aa94b5d2" name="Changes by ayman" comment="" />
+    <list id="ebbbb990-de72-4c06-b868-931a103f880e" name="Changes by luc" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
