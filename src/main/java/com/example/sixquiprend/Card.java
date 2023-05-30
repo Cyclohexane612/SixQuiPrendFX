@@ -80,7 +80,7 @@ public class Card {
 
     public void configureTdbImages() {
         if (tdb > 0) {
-            String tdbImagePath = "file:///Users/luc/IdeaProjects/Projet%20groupe/SixQuiPrend/src/main/resources/image/tdb.png";
+            String tdbImagePath = getClass().getResource("/image/tdb.png").toExternalForm();
             Image tdbImage = new Image(tdbImagePath);
             for (int i = 0; i < tdb; i++) {
                 ImageView tdbImageView = new ImageView(tdbImage);
