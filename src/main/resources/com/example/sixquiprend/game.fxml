@@ -26,5 +26,13 @@
                 </image>
             </ImageView>
         </HBox>
+
+        <VBox alignment="BOTTOM_LEFT" spacing="20.0">
+            <VBox fx:id="cardPlayersContainer" spacing="20.0">
+
+            </VBox>
+        </VBox>
     </children>
 </StackPane>
+
+
