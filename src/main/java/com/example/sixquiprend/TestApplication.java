@@ -17,20 +17,17 @@ public class TestApplication extends Application{
         cardPane.setPadding(new Insets(10));
         cardPane.setHgap(10);
         cardPane.setVgap(10);
-
         // Générez les cartes et ajoutez-les à la disposition
         for (int i = 1; i <= NUM_CARDS; i++) {
             Card card = new Card(i);
             card.configureCardAppearance();
             cardPane.getChildren().add(card.getImage());
         }
-
         // Créez une scène et affichez-la
         Scene scene = new Scene(cardPane);
         primaryStage.setScene(scene);
         primaryStage.show();
     }
-
     public static void main(String[] args) {
         launch(args);
     }

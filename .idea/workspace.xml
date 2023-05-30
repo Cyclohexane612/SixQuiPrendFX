@@ -4,9 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6d9d00df-c3ac-468f-8d0d-2c03acabc08a" name="Changes" comment="17/05 1" />
-    <list id="d0f439ed-a6bd-41ec-ba60-ed53aa94b5d2" name="Changes by ayman" comment="Changes by ayman" />
-    <list id="ebbbb990-de72-4c06-b868-931a103f880e" name="Changes by luc" comment="Changes by luc" />
+    <list default="true" id="6d9d00df-c3ac-468f-8d0d-2c03acabc08a" name="Changes" comment="Première scène fini">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sixquiprend/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sixquiprend/Board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sixquiprend/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sixquiprend/Card.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sixquiprend/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sixquiprend/GameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sixquiprend/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sixquiprend/HelloController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sixquiprend/MainApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sixquiprend/MainApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sixquiprend/TestApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sixquiprend/TestApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/sixquiprend/game.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/sixquiprend/game.fxml" afterDir="false" />
+    </list>
+    <list id="d0f439ed-a6bd-41ec-ba60-ed53aa94b5d2" name="Changes by ayman" comment="" />
+    <list id="ebbbb990-de72-4c06-b868-931a103f880e" name="Changes by luc" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -39,20 +49,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/maxen/IdeaProjects/HarryPotterAtHomeJava",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/maxen/IdeaProjects/HarryPotterAtHomeJava&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/resources/image" />
@@ -92,7 +102,11 @@
       <workItem from="1685107185264" duration="858000" />
       <workItem from="1685108104539" duration="97000" />
       <workItem from="1685108235739" duration="1443000" />
-      <workItem from="1685369101454" duration="4822000" />
+      <workItem from="1685369101454" duration="4587000" />
+      <workItem from="1685378079822" duration="761000" />
+      <workItem from="1685398204417" duration="8886000" />
+      <workItem from="1685435430920" duration="446000" />
+      <workItem from="1685445353318" duration="267000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1683893490932</created>
@@ -122,41 +136,28 @@
       <option name="project" value="LOCAL" />
       <updated>1685113306390</updated>
     </task>
-    <task id="LOCAL-00005" summary="17/05 1">
-      <created>1685373901082</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1685373901082</updated>
-    </task>
-    <task id="LOCAL-00006" summary="Changes by ayman">
-      <created>1685373910129</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1685373910129</updated>
-    </task>
-    <task id="LOCAL-00007" summary="Changes by luc">
-      <created>1685373919026</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1685373919026</updated>
-    </task>
-    <option name="localTasksCounter" value="8" />
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="first commit" />
     <MESSAGE value="Première interface" />
     <MESSAGE value="Demander le nom" />
     <MESSAGE value="Première scène fini" />
-    <MESSAGE value="17/05 1" />
-    <MESSAGE value="Changes by ayman" />
-    <MESSAGE value="Changes by luc" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changes by luc" />
+    <option name="LAST_COMMIT_MESSAGE" value="Première scène fini" />
   </component>
 </project>

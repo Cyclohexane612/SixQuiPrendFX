@@ -5,18 +5,18 @@ import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.StackPane;
+import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 import lombok.Getter;
 import lombok.Setter;
+import org.controlsfx.control.decoration.GraphicDecoration;
 
 public class Card {
     @FXML
     @Getter
-    private StackPane image;
+    private BorderPane image;
     @Getter
     private final int number;
     @Getter @Setter
@@ -26,24 +26,27 @@ public class Card {
     @FXML
     private Label numberLabel;
     @FXML
-    private ImageView tdbImageView;
+    private FlowPane tdbFlowPane;
 
     public Card(int number) {
         this.number = number;
         this.tdb = getTdb();
 
-        image = new StackPane();
+        image = new BorderPane();
 
         numberLabel = new Label(Integer.toString(number));
-        tdbImageView = new ImageView();
+        tdbFlowPane = new FlowPane();
 
-        // Ajouter le numéro de tdb au centre de la StackPane
-        StackPane.setAlignment(numberLabel, Pos.CENTER);
-        image.getChildren().addAll(numberLabel, tdbImageView);
+        // Placer le label au centre du BorderPane
+        BorderPane.setAlignment(numberLabel, Pos.CENTER);
+
+        image.setTop(tdbFlowPane); // Placer le FlowPane tout en haut
+        image.setCenter(numberLabel); // Placer le label au centre
 
         image.setPrefSize(100, 150);
         configureCardAppearance();
-        configureTdbImage();
+        configureTdbImages();
+        configureLabelAppearance();
     }
 
     public int getTdb() {
@@ -75,13 +78,25 @@ public class Card {
         }
     }
 
-    public void configureTdbImage() {
-            String tdbImageFile = "src/main/resources/image/tdb.png";
-            String tdbImagePath = getClass().getResource(tdbImageFile).toExternalForm();
+    public void configureTdbImages() {
+        if (tdb > 0) {
+            String tdbImagePath = "file:///Users/luc/IdeaProjects/Projet%20groupe/SixQuiPrend/src/main/resources/image/tdb.png";
             Image tdbImage = new Image(tdbImagePath);
-            tdbImageView.setImage(tdbImage);
-            tdbImageView.setPreserveRatio(true);
-            tdbImageView.setFitWidth(30);
-            tdbImageView.setFitHeight(30);
+            for (int i = 0; i < tdb; i++) {
+                ImageView tdbImageView = new ImageView(tdbImage);
+                tdbImageView.setPreserveRatio(true);
+                tdbImageView.setFitWidth(13);
+                tdbImageView.setFitHeight(13);
+                tdbFlowPane.getChildren().add(tdbImageView);
+            }
+        }
+    }
+    public void configureLabelAppearance() {
+        // Changer la police
+        Font font = Font.font("Arial", FontWeight.BOLD, 24);
+        numberLabel.setFont(font);
+
+        // Changer la couleur
+        numberLabel.setTextFill(Color.PURPLE);
     }
 }
