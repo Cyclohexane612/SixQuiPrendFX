@@ -1,5 +1,6 @@
 package com.example.sixquiprend;
 
+import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -11,6 +12,7 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+import javafx.util.Duration;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -44,11 +46,6 @@ public class GameController {
         System.out.println("Number of AI opponents: " + aiOpponents);
         // Créez le joueur humain
         Player humanPlayer = new Player(playerName);
-        Player humanPlayer2 = new Player("Aymane");
-        Player humanPlayer3 = new Player("Maxence");
-        humanPlayer.setTdb(10);
-        humanPlayer2.setTdb(12);
-        humanPlayer3.setTdb(9);
         // Créez les joueurs IA
         List<Player> aiPlayers = new ArrayList<>();
         for (int i = 0; i < aiOpponents; i++) {
@@ -84,22 +81,22 @@ public class GameController {
             row.addAll(nElements);
             index++;
         }
-
+        // Affichage board
         updateBoard(board);
-
-
         //Jeu s'arrête quand on a déposer 10 cartes ou quand on a un joueur à 66
         while(isAt66(board.getPlayers()) || isHandEmpty(board.getPlayers())){
-            // Méthode pour faire choisir une carte au joueur
-            // Méthode pour faire choisir une carte à toutes les IA présentes dans la partie
-            // Méthode de distribution
-            // Méthode de répartition des points malus (tdb)
+            // Méthode pour faire choisir une carte au joueur (Luc)
+
+            // Méthode pour faire choisir une carte à toutes les IA présentes dans la partie (Maxence)
+
+            // Méthode de distribution (Maxence)
+
+            // Méthode de répartition des points malus (tdb)(Maxence)
+
         }
         //Méthode pour trier les joueurs en fonction de leur tdb (classement)
         sortPlayers(board.getPlayers());
-        System.out.println("le gagnant est : " + board.getPlayers().get(0).getName() + "avec " + board.getPlayers().get(0).getTdb() + "pts");
-
-
+        System.out.println("le gagnant est : " + board.getPlayers().get(0).getName() + "avec " + board.getPlayers().get(0).getTdb() + "tdb");
         //Méthode qui affiche classement des joueurs
 
 
@@ -150,10 +147,25 @@ public class GameController {
         for (Card card : player.getHand()) {
             card.configureCardAppearance();
             cardPane.getChildren().add(card.getImage());
+
+            // Gestionnaire d'événements pour l'effet de levée de la carte
+            card.getImage().setOnMouseEntered(event -> {
+                TranslateTransition liftTransition = new TranslateTransition(Duration.millis(200), card.getImage());
+                liftTransition.setToY(-10); // Déplacement vertical vers le haut de 10 pixels
+                liftTransition.play();
+            });
+
+            // Gestionnaire d'événements pour annuler l'effet de levée de la carte
+            card.getImage().setOnMouseExited(event -> {
+                card.getImage().setTranslateY(0); // Réinitialisation de la translation verticale
+            });
         }
 
         cardPlayersContainer.getChildren().add(cardPane);
     }
+
+
+
 
     private void updateBoard(Board board) {
         displayCards(board.getRow1(), row1);
@@ -350,7 +362,6 @@ public class GameController {
     }
 
     public void sortPlayers(List<AbstractPlayer> players) {
-
         for (int i = 1; i < players.size(); i++) {
             AbstractPlayer key = players.get(i);
             int j = i - 1;
@@ -361,6 +372,7 @@ public class GameController {
             players.set(j + 1, key);
         }
     }
+
 }
 
 

@@ -6,7 +6,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -25,11 +24,29 @@ public class HelloController {
     private TextField nameField;
     @FXML
     private ComboBox<Integer> aiComboBox;
+    @Getter
+    private MediaPlayer mediaPlayer;
 
     private GameController gameController;
 
+    public void playMusic(){
+        String musicPath = getClass().getResource("/music/title.mp3").toExternalForm();
+        Media musicFile = new Media(musicPath);
+        mediaPlayer = new MediaPlayer(musicFile); // Utilisez la variable de classe mediaPlayer
+        mediaPlayer.play();
+        mediaPlayer.setVolume(0.1);
+        mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
+    }
+
+    public void stopMusic() {
+        if (mediaPlayer != null) {
+            mediaPlayer.stop();
+        }
+    }
+
     @FXML
     protected void onStartButtonClick(ActionEvent actionEvent) {
+        playMusic();
         name.setVisible(true);
         play_button.setVisible(false);
     }
@@ -65,6 +82,8 @@ public class HelloController {
             alert.showAndWait();
         } else {
             numberOfAI.setVisible(false);
+            stopMusic();
+
             Stage stage = (Stage) confirmIA.getScene().getWindow();
 
             String playerName = nameField.getText();
@@ -80,7 +99,6 @@ public class HelloController {
             stage.setMaximized(true);
             stage.setScene(scene);
             stage.setFullScreen(true); // Ajout de cette ligne pour mettre en plein écran
-
         }
     }
 }
