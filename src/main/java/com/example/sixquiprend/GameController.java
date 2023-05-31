@@ -1,9 +1,14 @@
 package com.example.sixquiprend;
 
+
+import java.util.concurrent.ThreadLocalRandom;
 import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.Node;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -66,7 +71,8 @@ public class GameController {
         // distribue les cartes pour tous les joueurs
         draw(cardList);
         // Montre la main du joueur humain
-        cardDisplayPlayers(humanPlayer);
+        List<Card> playedCards = new ArrayList<Card>();
+        cardDisplayPlayers(humanPlayer, playedCards);
 
         // On ditribue une carte sur chaque rangées
         List<List<Card>> rows = new ArrayList<>();
@@ -386,6 +392,9 @@ public class GameController {
         for (AbstractPlayer player : board.getPlayers()) {
             List<Card> nElements = cardList.subList(0, 10);
             player.getHand().addAll(nElements);
+            for (Card card : player.getHand()) {
+                card.setPlayer(player);
+            }
             cardList.removeAll(nElements);
         }
     }
@@ -417,4 +426,11 @@ public class GameController {
         }
     }
 
+    public void playAI(List<AbstractPlayer> players, List<Card> playedCards) {
+        for (AbstractPlayer AI : players.subList(1, players.size())) {
+            int num = ThreadLocalRandom.current().nextInt(0, AI.getHand().size());
+            playedCards.add(AI.getHand().get(num));
+            AI.getHand().remove(AI.getHand().get(num));
+        }
+    }
 }
