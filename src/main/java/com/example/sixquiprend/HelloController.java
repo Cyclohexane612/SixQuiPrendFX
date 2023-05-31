@@ -7,7 +7,12 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
+import javafx.scene.control.Alert;
+import lombok.Getter;
+
 
 import java.io.IOException;
 
@@ -56,10 +61,11 @@ public class HelloController {
 
     @FXML
     public String confirmName(ActionEvent actionEvent) {
-        name.setVisible(false);
-        numberOfAI.setVisible(true);
         String playerName = nameField.getText();
-        System.out.println("Player name: " + playerName);
+        if (!playerName.isEmpty()){
+            name.setVisible(false);
+            numberOfAI.setVisible(true);
+            System.out.println("Player name: " + playerName);
         return playerName;
         }else{
         Alert alert = new Alert(Alert.AlertType.ERROR);

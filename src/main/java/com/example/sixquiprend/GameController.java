@@ -33,6 +33,8 @@ public class GameController {
     private Board board;
     private List<Label> playerLabels;
     private List<Card> cardList;
+    private Boolean endgame;
+
     public void initialize() {
         board = new Board();
         playerLabels = new ArrayList<>();
@@ -259,30 +261,6 @@ public class GameController {
     }
 
 
-
-
-
-
-
-    private void addRowToGrid(List<Card> row, GridPane gridPane, int rowIndex, int maxCardsPerRow) {
-        int colIndex = 0;
-
-        for (Card card : row) {
-            card.configureCardAppearance();
-            BorderPane cardPane = card.getImage();
-
-            // Ajouter la carte à la grille
-            gridPane.add(cardPane, colIndex, rowIndex);
-
-            // Mettre à jour l'index de colonne
-            colIndex++;
-
-            // Vérifier si on atteint le nombre maximal de cartes par ligne
-            if (colIndex >= maxCardsPerRow) {
-                break; // Arrêter d'ajouter des cartes dans cette rangée
-            }
-        }
-    }
 
     private void cardInitialisation(List<Card> cardList) {
         for (int i = 1; i <= 104; i++) {
