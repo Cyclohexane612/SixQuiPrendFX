@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.input.KeyCombination;
 import javafx.scene.layout.VBox;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
@@ -104,7 +105,10 @@ public class HelloController {
             Scene scene = new Scene(root, 900, 700);
             stage.setMaximized(true);
             stage.setScene(scene);
-            stage.setFullScreen(true); // Ajout de cette ligne pour mettre en plein écran
+
+            stage.setFullScreenExitKeyCombination(KeyCombination.NO_MATCH);
+            stage.setFullScreen(true);
+
         }
     }
 }

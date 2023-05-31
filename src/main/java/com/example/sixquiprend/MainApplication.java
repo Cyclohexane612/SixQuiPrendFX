@@ -36,7 +36,9 @@ public class MainApplication extends Application {
 
         videoStage.setFullScreen(true);
         videoStage.setScene(videoScene);
+        videoStage.setFullScreenExitHint("");
         videoStage.show();
+
 
         // Masquer la fenêtre principale pendant la lecture de la vidéo
         primaryStage.hide();

@@ -3,11 +3,13 @@ package com.example.sixquiprend;
 
 import java.util.concurrent.ThreadLocalRandom;
 import javafx.animation.TranslateTransition;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -24,6 +26,8 @@ import java.util.*;
 public class GameController {
 
     @FXML
+    private Button buttonRow1,buttonRow2,buttonRow3,buttonRow4;
+    @FXML
     private VBox row1;
     @FXML
     private VBox row2;
@@ -31,6 +35,8 @@ public class GameController {
     private VBox row3;
     @FXML
     private VBox row4;
+    @FXML
+    private VBox pileOptions;
     @FXML
     private VBox cardPlayersContainer;
     @FXML
@@ -200,6 +206,11 @@ public class GameController {
                 Card card = cards.get(i);
                 card.configureCardAppearance();
                 cardPane.getChildren().add(card.getImage());
+            } else if (i == 5) { // Correction : remplacer "else-if" par "else if" et modifier la condition de "i == 6" à "i == 5"
+                Rectangle rectangle = new Rectangle(100, 150);
+                rectangle.setFill(Color.rgb(255, 0, 0, 0.5)); // Blanc semi-transparent
+                rectangle.setStroke(Color.RED); // Couleur de trait pour le rectangle
+                cardPane.getChildren().add(rectangle);
             } else {
                 Rectangle rectangle = new Rectangle(100, 150);
                 rectangle.setFill(Color.rgb(255, 255, 255, 0.5)); // Blanc semi-transparent
@@ -207,6 +218,7 @@ public class GameController {
                 cardPane.getChildren().add(rectangle);
             }
         }
+
         row.getChildren().add(cardPane);
     }
     private void displayPlayers(List<AbstractPlayer> players) {
@@ -265,9 +277,6 @@ public class GameController {
             }
         }
     }
-
-
-
     private void cardInitialisation(List<Card> cardList) {
         for (int i = 1; i <= 104; i++) {
             Card card = new Card(i);
@@ -278,7 +287,6 @@ public class GameController {
 
     public void distribution(List<AbstractPlayer> players, List<Card> playedCards) {
         sortCards(playedCards);
-
         for (Card card : playedCards) {
             int num = card.getNumber();
             int dif1 = num - board.getRow1().get(board.getRow1().size() - 1).getNumber();
@@ -287,46 +295,8 @@ public class GameController {
             int dif4 = num - board.getRow4().get(board.getRow4().size() - 1).getNumber();
 
             if (dif1 < 0 && dif2 < 0 && dif3 < 0 && dif4 < 0) {
-                //choisit la pile puis prends les cartes de cette dernière
-                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-                alert.setTitle("Choisir une pile");
-                alert.setHeaderText("Choisissez la pile dans laquelle vous souhaitez placer la carte.");
-                alert.setContentText("Sélectionnez une option :");
-
-                ButtonType buttonTypeRow1 = new ButtonType("Pile 1");
-                ButtonType buttonTypeRow2 = new ButtonType("Pile 2");
-                ButtonType buttonTypeRow3 = new ButtonType("Pile 3");
-                ButtonType buttonTypeRow4 = new ButtonType("Pile 4");
-
-                alert.getButtonTypes().setAll(buttonTypeRow1, buttonTypeRow2, buttonTypeRow3, buttonTypeRow4);
-
-                Optional<ButtonType> result = alert.showAndWait();
-
-                if (result.isPresent()) {
-                    if (result.get() == buttonTypeRow1) {
-                        card.getPlayer().getDiscard().addAll(board.getRow1());
-                        for (Card card1 : card.getPlayer().getDiscard()) {
-                            System.out.println(card1.getNumber());
-                        }
-
-                        board.getRow1().clear();
-                        board.getRow1().add(card);
-                    } else if (result.get() == buttonTypeRow2) {
-                        card.getPlayer().getDiscard().addAll(board.getRow2());
-                        board.getRow2().clear();
-                        board.getRow2().add(card);
-                    } else if (result.get() == buttonTypeRow3) {
-                        card.getPlayer().getDiscard().addAll(board.getRow3());
-                        board.getRow3().clear();
-                        board.getRow3().add(card);
-                    } else if (result.get() == buttonTypeRow4) {
-                        card.getPlayer().getDiscard().addAll(board.getRow4());
-                        board.getRow4().clear();
-                        board.getRow4().add(card);
-                    }
-                }
+                Platform.runLater(() -> showPileOptions(card));
             } else {
-                // Trouver la différence la plus petite parmi les différences positives
                 int minDiff = Integer.MAX_VALUE;
                 if (dif1 < minDiff && dif1 > 0) {
                     minDiff = dif1;
@@ -369,10 +339,56 @@ public class GameController {
                 }
             }
         }
+
         updateBoard(board);
         playedCards.clear();
         updatePlayerTdb(board.getPlayers());
     }
+
+    private void showPileOptions(Card card) {
+        pileOptions.setVisible(true);
+        buttonRow1.setOnAction(event -> selectPile(card, 1));
+        buttonRow2.setOnAction(event -> selectPile(card, 2));
+        buttonRow3.setOnAction(event -> selectPile(card, 3));
+        buttonRow4.setOnAction(event -> selectPile(card, 4));
+    }
+
+
+    private void selectPile(Card card, int pileNumber) {
+        AbstractPlayer player = card.getPlayer();
+        List<Card> selectedPile;
+        switch (pileNumber) {
+            case 1:
+                selectedPile = board.getRow1();
+                break;
+            case 2:
+                selectedPile = board.getRow2();
+                break;
+            case 3:
+                selectedPile = board.getRow3();
+                break;
+            case 4:
+                selectedPile = board.getRow4();
+                break;
+            default:
+                selectedPile = Collections.emptyList();
+                break;
+        }
+
+        player.getDiscard().addAll(selectedPile);
+        selectedPile.clear();
+        selectedPile.add(card);
+
+        pileOptions.setVisible(false);
+
+        // Autres mises à jour nécessaires
+        updateBoard(board);
+        updatePlayerTdb(board.getPlayers());
+    }
+
+
+
+
 
 
     public void sortCards(List<Card> cards) {

@@ -2,6 +2,7 @@
 <?import javafx.geometry.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
 
 <StackPane xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sixquiprend.GameController">
     <children>
@@ -36,6 +37,14 @@
             <VBox fx:id="cardPlayersContainer" spacing="20.0">
 
             </VBox>
+        </VBox>
+
+        <VBox fx:id="pileOptions" alignment="CENTER_RIGHT" spacing="10.0" visible="false" style="-fx-border-color: black; -fx-border-width: 1px; -fx-padding: 10px; -fx-margin: -50px 0 0 -50px;">
+            <Label text="Choisissez une pile :" />
+            <Button fx:id="buttonRow1" text="Pile 1" />
+            <Button fx:id="buttonRow2" text="Pile 2" />
+            <Button fx:id="buttonRow3" text="Pile 3" />
+            <Button fx:id="buttonRow4" text="Pile 4" />
         </VBox>
     </children>
 </StackPane>
