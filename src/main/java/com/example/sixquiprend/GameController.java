@@ -343,25 +343,25 @@ public class GameController {
 
                 // Ajouter la carte à la pile correspondante avec la différence la plus petite
                 if (dif1 == minDiff) {
-                    if (board.getRow1().size() == 4) {
+                    if (board.getRow1().size() == 5) {
                         card.getPlayer().getDiscard().addAll(board.getRow1());
                         board.getRow1().clear();
                     }
                     board.getRow1().add(card);
                 } else if (dif2 == minDiff) {
-                    if (board.getRow2().size() == 4) {
+                    if (board.getRow2().size() == 5) {
                         card.getPlayer().getDiscard().addAll(board.getRow2());
                         board.getRow2().clear();
                     }
                     board.getRow2().add(card);
                 } else if (dif3 == minDiff) {
-                    if (board.getRow3().size() == 4) {
+                    if (board.getRow3().size() == 5) {
                         card.getPlayer().getDiscard().addAll(board.getRow3());
                         board.getRow3().clear();
                     }
                     board.getRow3().add(card);
                 } else if (dif4 == minDiff) {
-                    if (board.getRow4().size() == 4) {
+                    if (board.getRow4().size() == 5) {
                         card.getPlayer().getDiscard().addAll(board.getRow4());
                         board.getRow4().clear();
                     }
