@@ -13,7 +13,7 @@ public abstract class AbstractPlayer {
     private List<Card> hand;
     @Getter @Setter
     private List<Card> discard;
-    @Getter @Setter
+    @Setter
     private int tdb;
 
     public AbstractPlayer(String name) {
@@ -22,4 +22,7 @@ public abstract class AbstractPlayer {
         this.discard = new ArrayList<Card>();
         this.tdb = 0;
     }
+    public abstract int getTdb();
+
+
 }

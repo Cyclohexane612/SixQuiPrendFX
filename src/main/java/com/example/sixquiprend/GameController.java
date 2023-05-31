@@ -14,10 +14,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 public class GameController {
 
@@ -41,6 +38,7 @@ public class GameController {
         playerLabels = new ArrayList<>();
         cardList = new ArrayList<>();
     }
+
     public void receivePlayerInformation(String playerName, int aiOpponents) {
         System.out.println("Player name: " + playerName);
         System.out.println("Number of AI opponents: " + aiOpponents);
@@ -84,29 +82,20 @@ public class GameController {
         // Affichage board
         updateBoard(board);
         //Jeu s'arrête quand on a déposer 10 cartes ou quand on a un joueur à 66
-        while(isAt66(board.getPlayers()) || isHandEmpty(board.getPlayers())){
-            // Méthode pour faire choisir une carte au joueur (Luc)
-
-            // Méthode pour faire choisir une carte à toutes les IA présentes dans la partie (Maxence)
-
-            // Méthode de distribution (Maxence)
-
-            // Méthode de répartition des points malus (tdb)(Maxence)
-
+        while (isAt66(board.getPlayers()) || isHandEmpty(board.getPlayers())) {
+            cardDisplayPlayers(humanPlayer, playedCards);
         }
         //Méthode pour trier les joueurs en fonction de leur tdb (classement)
         sortPlayers(board.getPlayers());
         System.out.println("le gagnant est : " + board.getPlayers().get(0).getName() + "avec " + board.getPlayers().get(0).getTdb() + "tdb");
         //Méthode qui affiche classement des joueurs
 
-
-
-
     }
-    public boolean isAt66(List<AbstractPlayer> players){
+
+    public boolean isAt66(List<AbstractPlayer> players) {
         boolean endGame = false;
         for (AbstractPlayer player : players) {
-            if(player.getTdb() >= 66){
+            if (player.getTdb() >= 66) {
                 System.out.println("Le joueur :" + player.getName() + "a perdu car il a 66 pts");
                 return endGame = true;
             }
@@ -114,17 +103,17 @@ public class GameController {
         return endGame;
     }
 
-    public boolean isHandEmpty(List<AbstractPlayer> players){
+    public boolean isHandEmpty(List<AbstractPlayer> players) {
         boolean endGame = false;
-            if(players.get(0).getHand().isEmpty()){
-                System.out.println("Les joueurs n'ont plus de carte");
-                return endGame = true;
+        if (players.get(0).getHand().isEmpty()) {
+            System.out.println("Les joueurs n'ont plus de carte");
+            return endGame = true;
         }
-            return endGame;
+        return endGame;
     }
 
 
-    public void playMusic(){
+    public void playMusic() {
         String musicPath = getClass().getResource("/music/musique.mp3").toExternalForm();
         Media musicFile = new Media(musicPath);
         MediaPlayer mediaPlayer = new MediaPlayer(musicFile);
@@ -135,23 +124,21 @@ public class GameController {
     }
 
 
-    private void cardDisplayPlayers(Player player) {
+    private void cardDisplayPlayers(Player player, List<Card> playedCards) {
         sortCards(player.getHand());
-        cardPlayersContainer.getChildren().clear();
 
         FlowPane cardPane = new FlowPane();
         cardPane.setPadding(new Insets(10));
         cardPane.setHgap(10);
         cardPane.setVgap(10);
-
         for (Card card : player.getHand()) {
             card.configureCardAppearance();
             cardPane.getChildren().add(card.getImage());
 
             // Gestionnaire d'événements pour l'effet de levée de la carte
             card.getImage().setOnMouseEntered(event -> {
-                TranslateTransition liftTransition = new TranslateTransition(Duration.millis(200), card.getImage());
-                liftTransition.setToY(-10); // Déplacement vertical vers le haut de 10 pixels
+                TranslateTransition liftTransition = new TranslateTransition(Duration.millis(50), card.getImage());
+                liftTransition.setToY(-10);
                 liftTransition.play();
             });
 
@@ -159,8 +146,26 @@ public class GameController {
             card.getImage().setOnMouseExited(event -> {
                 card.getImage().setTranslateY(0); // Réinitialisation de la translation verticale
             });
-        }
 
+            card.getImage().setOnMouseClicked(event -> {
+                playedCards.add(card);
+                player.getHand().remove(card);
+                cardPane.getChildren().remove(card.getImage());
+
+                // Méthode pour faire choisir une carte à toutes les IA présentes dans la partie (Maxence)
+                playAI(board.getPlayers(), playedCards);
+                // Méthode de distribution (Maxence)
+                distribution(board.getPlayers(), playedCards);
+
+                // Réaffichage des cartes restantes dans la main du joueur
+                cardPane.getChildren().clear();
+                for (Card updatedCard : player.getHand()) {
+                    updatedCard.configureCardAppearance();
+                    cardPane.getChildren().add(updatedCard.getImage());
+                }
+            });
+        }
+        cardPlayersContainer.getChildren().clear();
         cardPlayersContainer.getChildren().add(cardPane);
     }
 
@@ -175,6 +180,9 @@ public class GameController {
     }
 
     private void displayCards(List<Card> cards, VBox row) {
+        // Supprimer les cartes précédentes affichées
+        row.getChildren().clear();
+
         FlowPane cardPane = new FlowPane();
         cardPane.setPadding(new Insets(10));
         cardPane.setHgap(10);
@@ -193,8 +201,6 @@ public class GameController {
         }
         row.getChildren().add(cardPane);
     }
-
-
     private void displayPlayers(List<AbstractPlayer> players) {
         VBox vbox = new VBox(); // Créez un VBox pour contenir les joueurs
         vbox.setAlignment(Pos.TOP_RIGHT); // Alignez les joueurs en haut à droite
@@ -230,10 +236,27 @@ public class GameController {
         playersContainer.getChildren().add(vbox); // Ajoutez le VBox au conteneur des joueurs
     }
 
+    private void updatePlayerTdb(List<AbstractPlayer> players) {
+        VBox vbox = (VBox) playersContainer.getChildren().get(0); // Récupérez le VBox existant contenant les joueurs
 
+        for (Node node : vbox.getChildren()) {
+            if (node instanceof StackPane) {
+                StackPane playerPane = (StackPane) node;
+                VBox playerInfoBox = (VBox) playerPane.getChildren().get(1); // Récupérez le VBox contenant les informations du joueur
 
+                if (playerInfoBox.getChildren().size() > 1) {
+                    HBox tdbBox = (HBox) playerInfoBox.getChildren().get(1); // Récupérez le HBox contenant le nombre de tdb
 
+                    if (tdbBox.getChildren().size() > 1) {
+                        Label tdbLabel = (Label) tdbBox.getChildren().get(1); // Récupérez le Label affichant le nombre de tdb
 
+                        AbstractPlayer player = players.get(vbox.getChildren().indexOf(playerPane));
+                        tdbLabel.setText(": " + player.getTdb()); // Mettez à jour le texte du Label avec le nouveau nombre de tdb
+                    }
+                }
+            }
+        }
+    }
 
 
 
@@ -261,7 +284,7 @@ public class GameController {
         }
     }
 
-    private void cardInitialisation(List<Card> cardList){
+    private void cardInitialisation(List<Card> cardList) {
         for (int i = 1; i <= 104; i++) {
             Card card = new Card(i);
             card.configureCardAppearance();
@@ -269,62 +292,104 @@ public class GameController {
         }
     }
 
-    public void distribution(List<Card> playedCards){
+    public void distribution(List<AbstractPlayer> players, List<Card> playedCards) {
         sortCards(playedCards);
-        for (Card card:playedCards){
+
+        for (Card card : playedCards) {
             int num = card.getNumber();
-            int dif1 = num - board.getRow1().get(board.getRow1().size()-1).getNumber();
-            int dif2 = num - board.getRow2().get(board.getRow2().size()-1).getNumber();
-            int dif3 = num - board.getRow3().get(board.getRow3().size()-1).getNumber();
-            int dif4 = num - board.getRow4().get(board.getRow4().size()-1).getNumber();
-            if (dif1<0 & dif2<0 & dif3<0 & dif4<0){
+            int dif1 = num - board.getRow1().get(board.getRow1().size() - 1).getNumber();
+            int dif2 = num - board.getRow2().get(board.getRow2().size() - 1).getNumber();
+            int dif3 = num - board.getRow3().get(board.getRow3().size() - 1).getNumber();
+            int dif4 = num - board.getRow4().get(board.getRow4().size() - 1).getNumber();
+
+            if (dif1 < 0 && dif2 < 0 && dif3 < 0 && dif4 < 0) {
                 //choisit la pile puis prends les cartes de cette dernière
-            }
-            else{
-                if (dif1<dif2 & dif1<dif3 & dif1<dif4 & dif1>0){
-                    if (board.getRow1().size()==4){
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setTitle("Choisir une pile");
+                alert.setHeaderText("Choisissez la pile dans laquelle vous souhaitez placer la carte.");
+                alert.setContentText("Sélectionnez une option :");
+
+                ButtonType buttonTypeRow1 = new ButtonType("Pile 1");
+                ButtonType buttonTypeRow2 = new ButtonType("Pile 2");
+                ButtonType buttonTypeRow3 = new ButtonType("Pile 3");
+                ButtonType buttonTypeRow4 = new ButtonType("Pile 4");
+
+                alert.getButtonTypes().setAll(buttonTypeRow1, buttonTypeRow2, buttonTypeRow3, buttonTypeRow4);
+
+                Optional<ButtonType> result = alert.showAndWait();
+
+                if (result.isPresent()) {
+                    if (result.get() == buttonTypeRow1) {
                         card.getPlayer().getDiscard().addAll(board.getRow1());
+                        for (Card card1 : card.getPlayer().getDiscard()) {
+                            System.out.println(card1.getNumber());
+                        }
+
                         board.getRow1().clear();
                         board.getRow1().add(card);
-                    }
-                    else{
-                        board.getRow1().add(card);
-                    }
-                }
-                if (dif2<dif3 & dif2<dif3 & dif2<dif4 & dif2>0){
-                    if (board.getRow2().size()==4){
+                    } else if (result.get() == buttonTypeRow2) {
                         card.getPlayer().getDiscard().addAll(board.getRow2());
                         board.getRow2().clear();
                         board.getRow2().add(card);
-                    }
-                    else{
-                        board.getRow2().add(card);
-                    }
-                }
-                if (dif3<dif2 & dif3<dif1 & dif3<dif4 & dif3>0){
-                    if (board.getRow3().size()==4){
+                    } else if (result.get() == buttonTypeRow3) {
                         card.getPlayer().getDiscard().addAll(board.getRow3());
                         board.getRow3().clear();
                         board.getRow3().add(card);
-                    }
-                    else{
-                        board.getRow3().add(card);
-                    }
-                }
-                if (dif4<dif2 & dif4<dif3 & dif4<dif1 & dif4>0){
-                    if (board.getRow4().size()==4){
+                    } else if (result.get() == buttonTypeRow4) {
                         card.getPlayer().getDiscard().addAll(board.getRow4());
                         board.getRow4().clear();
                         board.getRow4().add(card);
                     }
-                    else{
-                        board.getRow4().add(card);
+                }
+            } else {
+                // Trouver la différence la plus petite parmi les différences positives
+                int minDiff = Integer.MAX_VALUE;
+                if (dif1 < minDiff && dif1 > 0) {
+                    minDiff = dif1;
+                }
+                if (dif2 < minDiff && dif2 > 0) {
+                    minDiff = dif2;
+                }
+                if (dif3 < minDiff && dif3 > 0) {
+                    minDiff = dif3;
+                }
+                if (dif4 < minDiff && dif4 > 0) {
+                    minDiff = dif4;
+                }
+
+                // Ajouter la carte à la pile correspondante avec la différence la plus petite
+                if (dif1 == minDiff) {
+                    if (board.getRow1().size() == 4) {
+                        card.getPlayer().getDiscard().addAll(board.getRow1());
+                        board.getRow1().clear();
                     }
+                    board.getRow1().add(card);
+                } else if (dif2 == minDiff) {
+                    if (board.getRow2().size() == 4) {
+                        card.getPlayer().getDiscard().addAll(board.getRow2());
+                        board.getRow2().clear();
+                    }
+                    board.getRow2().add(card);
+                } else if (dif3 == minDiff) {
+                    if (board.getRow3().size() == 4) {
+                        card.getPlayer().getDiscard().addAll(board.getRow3());
+                        board.getRow3().clear();
+                    }
+                    board.getRow3().add(card);
+                } else if (dif4 == minDiff) {
+                    if (board.getRow4().size() == 4) {
+                        card.getPlayer().getDiscard().addAll(board.getRow4());
+                        board.getRow4().clear();
+                    }
+                    board.getRow4().add(card);
                 }
             }
         }
+        updateBoard(board);
         playedCards.clear();
+        updatePlayerTdb(board.getPlayers());
     }
+
 
     public void sortCards(List<Card> cards) {
         for (int i = 1; i < cards.size(); i++) {
@@ -337,10 +402,11 @@ public class GameController {
             cards.set(j + 1, key);
         }
     }
-    public void draw(List<Card> cardList){
+
+    public void draw(List<Card> cardList) {
         // Draw 10 card from cardList and it in hand
-        for (AbstractPlayer player : board.getPlayers()){
-            List<Card> nElements = cardList.subList(0,10);
+        for (AbstractPlayer player : board.getPlayers()) {
+            List<Card> nElements = cardList.subList(0, 10);
             player.getHand().addAll(nElements);
             cardList.removeAll(nElements);
         }
@@ -374,6 +440,3 @@ public class GameController {
     }
 
 }
-
-
-
