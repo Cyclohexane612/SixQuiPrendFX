@@ -4,6 +4,8 @@ import javafx.fxml.FXML;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
@@ -14,6 +16,14 @@ import java.util.Random;
 
 public class GameController {
 
+    @FXML
+    private VBox row1;
+    @FXML
+    private VBox row2;
+    @FXML
+    private VBox row3;
+    @FXML
+    private VBox row4;
     @FXML
     private VBox cardPlayersContainer;
     @FXML
@@ -62,9 +72,12 @@ public class GameController {
             row.addAll(nElements);
             cardList.removeAll(nElements);
         }
+        updateBoard(board);
 
 
     }
+
+
     private void cardDisplayPlayers(Player player) {
         sortCards(player.getHand());
         cardPlayersContainer.getChildren().clear();
@@ -81,13 +94,42 @@ public class GameController {
 
         cardPlayersContainer.getChildren().add(cardPane);
     }
-    private void displayPlayers(List<AbstractPlayer> players) {
-        playersContainer.getChildren().clear();
 
-        HBox hbox = new HBox(); // Créez un HBox pour contenir les joueurs
-        hbox.setAlignment(Pos.TOP_LEFT); // Alignez les joueurs en haut à gauche
-        hbox.setPadding(new Insets(10));
-        hbox.setSpacing(5);
+    private void updateBoard(Board board) {
+        displayCards(board.getRow1(), row1);
+        displayCards(board.getRow2(), row2);
+        displayCards(board.getRow3(), row3);
+        displayCards(board.getRow4(), row4);
+    }
+
+    private void displayCards(List<Card> cards, VBox row) {
+        FlowPane cardPane = new FlowPane();
+        cardPane.setPadding(new Insets(10));
+        cardPane.setHgap(10);
+        cardPane.setVgap(10);
+
+        for (int i = 0; i < 6; i++) {
+            if (i < cards.size()) {
+                Card card = cards.get(i);
+                card.configureCardAppearance();
+                cardPane.getChildren().add(card.getImage());
+            } else {
+                Rectangle rectangle = new Rectangle(100, 150);
+                rectangle.setFill(Color.rgb(255, 255, 255, 0.5)); // Blanc semi-transparent
+                rectangle.setStroke(Color.WHITE); // Couleur de trait pour le rectangle
+                cardPane.getChildren().add(rectangle);
+            }
+        }
+
+        row.getChildren().add(cardPane);
+    }
+
+
+    private void displayPlayers(List<AbstractPlayer> players) {
+        VBox vbox = new VBox(); // Créez un VBox pour contenir les joueurs
+        vbox.setAlignment(Pos.TOP_RIGHT); // Alignez les joueurs en haut à droite
+        vbox.setPadding(new Insets(10));
+        vbox.setSpacing(5);
 
         for (AbstractPlayer player : players) {
             Label playerLabel = new Label(player.getName());
@@ -96,11 +138,59 @@ public class GameController {
             rectangle.setFill(Color.WHITE);
             rectangle.setStroke(Color.BLACK);
 
-            StackPane playerPane = new StackPane(rectangle, playerLabel);
-            hbox.getChildren().add(playerPane); // Ajoutez chaque joueur au HBox
+            String tdbImagePath = getClass().getResource("/image/tdb.png").toExternalForm();
+            Image tdbImage = new Image(tdbImagePath);
+            ImageView tdbImageView = new ImageView(tdbImage);
+            tdbImageView.setFitWidth(13);
+            tdbImageView.setFitHeight(13);
+
+            Label tdbLabel = new Label(": " + player.getTdb());
+            HBox tdbBox = new HBox(tdbImageView, tdbLabel);
+            tdbBox.setAlignment(Pos.CENTER);
+            tdbBox.setSpacing(5);
+
+            VBox playerInfoBox = new VBox(playerLabel, tdbBox);
+            playerInfoBox.setAlignment(Pos.CENTER);
+            playerInfoBox.setSpacing(5);
+
+            StackPane playerPane = new StackPane(rectangle, playerInfoBox);
+            vbox.getChildren().add(playerPane); // Ajoutez chaque joueur au VBox
         }
-        playersContainer.getChildren().add(hbox); // Ajoutez le HBox au conteneur des joueurs
+        playersContainer.getChildren().clear();
+        playersContainer.getChildren().add(vbox); // Ajoutez le VBox au conteneur des joueurs
     }
+
+
+
+
+
+
+
+
+
+
+
+
+    private void addRowToGrid(List<Card> row, GridPane gridPane, int rowIndex, int maxCardsPerRow) {
+        int colIndex = 0;
+
+        for (Card card : row) {
+            card.configureCardAppearance();
+            BorderPane cardPane = card.getImage();
+
+            // Ajouter la carte à la grille
+            gridPane.add(cardPane, colIndex, rowIndex);
+
+            // Mettre à jour l'index de colonne
+            colIndex++;
+
+            // Vérifier si on atteint le nombre maximal de cartes par ligne
+            if (colIndex >= maxCardsPerRow) {
+                break; // Arrêter d'ajouter des cartes dans cette rangée
+            }
+        }
+    }
+
     private void cardInitialisation(List<Card> cardList){
         for (int i = 1; i <= 104; i++) {
             Card card = new Card(i);
