@@ -44,27 +44,44 @@ public class HelloController {
         String playerName = nameField.getText();
         System.out.println("Player name: " + playerName);
         return playerName;
+        }else{
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Error");
+        alert.setHeaderText("Empty Name");
+        alert.setContentText("Please enter your name");
+        alert.showAndWait();
+        }
+        return playerName;
     }
-
 
     @FXML
     public void confirmAIOpponents(ActionEvent actionEvent) throws IOException {
-        numberOfAI.setVisible(false);
-        Stage stage = (Stage) confirmIA.getScene().getWindow();
-        int aiOpponents = aiComboBox.getValue();
-        String playerName = nameField.getText();
+        Integer aiOpponents = aiComboBox.getValue();
+        if (aiOpponents == null || aiOpponents < 1) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Empty AI");
+            alert.setContentText("Please select at least one AI");
+            alert.showAndWait();
+        } else {
+            numberOfAI.setVisible(false);
+            Stage stage = (Stage) confirmIA.getScene().getWindow();
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("game.fxml"));
-        Parent root = loader.load();
-        GameController gameController = loader.getController();
+            String playerName = nameField.getText();
 
-        gameController.receivePlayerInformation(playerName, aiOpponents);
-        System.out.println("Number of AI opponents: " + aiOpponents);
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("game.fxml"));
+            Parent root = loader.load();
+            GameController gameController = loader.getController();
 
-        Scene scene = new Scene(root, 900, 700);
-        stage.setMaximized(true);
-        stage.setScene(scene);
-        stage.setFullScreen(true); // Ajout de cette ligne pour mettre en plein écran
+            gameController.receivePlayerInformation(playerName, aiOpponents);
+            System.out.println("Number of AI opponents: " + aiOpponents);
+
+            Scene scene = new Scene(root, 900, 700);
+            stage.setMaximized(true);
+            stage.setScene(scene);
+            stage.setFullScreen(true); // Ajout de cette ligne pour mettre en plein écran
+
+        }
     }
-
 }
+

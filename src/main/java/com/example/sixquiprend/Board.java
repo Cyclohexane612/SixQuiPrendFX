@@ -22,4 +22,16 @@ public class Board {
         this.row4 = new ArrayList<>();
         this.endTurn = false; // Assuming you want to initialize it to false
     }
+
+
+
+    public List<List<Card>> getRows() {
+        List<List<Card>> rows = new ArrayList<>();
+        rows.add(row1);
+        rows.add(row2);
+        rows.add(row3);
+        rows.add(row4);
+        return rows;
+    }
+
 }

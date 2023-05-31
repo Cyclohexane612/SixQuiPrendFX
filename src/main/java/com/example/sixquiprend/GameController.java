@@ -7,10 +7,13 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
@@ -41,6 +44,11 @@ public class GameController {
         System.out.println("Number of AI opponents: " + aiOpponents);
         // Créez le joueur humain
         Player humanPlayer = new Player(playerName);
+        Player humanPlayer2 = new Player("Aymane");
+        Player humanPlayer3 = new Player("Maxence");
+        humanPlayer.setTdb(10);
+        humanPlayer2.setTdb(12);
+        humanPlayer3.setTdb(9);
         // Créez les joueurs IA
         List<Player> aiPlayers = new ArrayList<>();
         for (int i = 0; i < aiOpponents; i++) {
@@ -50,31 +58,83 @@ public class GameController {
             aiPlayers.add(aiPlayer);
         }
         // initialise le board et les joueurs
+        playMusic();
         board.getPlayers().add(humanPlayer);
         board.getPlayers().addAll(aiPlayers);
         displayPlayers(board.getPlayers());
-        // initialise les cartes
+        sortPlayers(board.getPlayers());
+        // initialise les cartes + Mélange
         cardInitialisation(cardList);
         shuffle(cardList);
-        // distribue les cartes
+        // distribue les cartes pour tous les joueurs
         draw(cardList);
         // Montre la main du joueur humain
         cardDisplayPlayers(humanPlayer);
 
-        // distribue sur les rows
+        // On ditribue une carte sur chaque rangées
         List<List<Card>> rows = new ArrayList<>();
         rows.add(board.getRow1());
         rows.add(board.getRow2());
         rows.add(board.getRow3());
         rows.add(board.getRow4());
+        int index = 0;
         for (List<Card> row : rows) {
-            List<Card> nElements = cardList.subList(0, 1);
+            List<Card> nElements = cardList.subList(index, index + 1);
+            System.out.println(row + ":" + nElements.get(0).getNumber());
             row.addAll(nElements);
-            cardList.removeAll(nElements);
+            index++;
         }
+
         updateBoard(board);
 
 
+        //Jeu s'arrête quand on a déposer 10 cartes ou quand on a un joueur à 66
+        while(isAt66(board.getPlayers()) || isHandEmpty(board.getPlayers())){
+            // Méthode pour faire choisir une carte au joueur
+            // Méthode pour faire choisir une carte à toutes les IA présentes dans la partie
+            // Méthode de distribution
+            // Méthode de répartition des points malus (tdb)
+        }
+        //Méthode pour trier les joueurs en fonction de leur tdb (classement)
+        sortPlayers(board.getPlayers());
+        System.out.println("le gagnant est : " + board.getPlayers().get(0).getName() + "avec " + board.getPlayers().get(0).getTdb() + "pts");
+
+
+        //Méthode qui affiche classement des joueurs
+
+
+
+
+    }
+    public boolean isAt66(List<AbstractPlayer> players){
+        boolean endGame = false;
+        for (AbstractPlayer player : players) {
+            if(player.getTdb() >= 66){
+                System.out.println("Le joueur :" + player.getName() + "a perdu car il a 66 pts");
+                return endGame = true;
+            }
+        }
+        return endGame;
+    }
+
+    public boolean isHandEmpty(List<AbstractPlayer> players){
+        boolean endGame = false;
+            if(players.get(0).getHand().isEmpty()){
+                System.out.println("Les joueurs n'ont plus de carte");
+                return endGame = true;
+        }
+            return endGame;
+    }
+
+
+    public void playMusic(){
+        String musicPath = getClass().getResource("/music/musique.mp3").toExternalForm();
+        Media musicFile = new Media(musicPath);
+        MediaPlayer mediaPlayer = new MediaPlayer(musicFile);
+        // Réglez le volume à 50% (moitié du volume maximum)
+        mediaPlayer.play();
+        mediaPlayer.setVolume(0.1);
+        mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
     }
 
 
@@ -107,7 +167,6 @@ public class GameController {
         cardPane.setPadding(new Insets(10));
         cardPane.setHgap(10);
         cardPane.setVgap(10);
-
         for (int i = 0; i < 6; i++) {
             if (i < cards.size()) {
                 Card card = cards.get(i);
@@ -120,7 +179,6 @@ public class GameController {
                 cardPane.getChildren().add(rectangle);
             }
         }
-
         row.getChildren().add(cardPane);
     }
 
@@ -273,7 +331,6 @@ public class GameController {
             List<Card> nElements = cardList.subList(0,10);
             player.getHand().addAll(nElements);
             cardList.removeAll(nElements);
-            sortCards(cardList);
         }
     }
 
@@ -285,6 +342,23 @@ public class GameController {
             Card temp = cardList.get(i);
             cardList.set(i, cardList.get(j));
             cardList.set(j, temp);
+        }
+        System.out.println("Liste de cartes mélangée :");
+        for (Card card : cardList) {
+            System.out.println(card.getNumber());
+        }
+    }
+
+    public void sortPlayers(List<AbstractPlayer> players) {
+
+        for (int i = 1; i < players.size(); i++) {
+            AbstractPlayer key = players.get(i);
+            int j = i - 1;
+            while (j >= 0 && players.get(j).getTdb() > key.getTdb()) {
+                players.set(j + 1, players.get(j));
+                j--;
+            }
+            players.set(j + 1, key);
         }
     }
 }
