@@ -18,6 +18,7 @@ public class MainApplication extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("title_screen.fxml"));
         StackPane root = fxmlLoader.load();
         Scene scene = new Scene(root, 320, 240);
+        primaryStage.setMaximized(true);
         primaryStage.setTitle("Six qui prend");
         primaryStage.setScene(scene);
         primaryStage.show();
