@@ -33,6 +33,19 @@ class GameControllerTest {
 
     @Test
     void distribution() {
+        Board board = new Board();
+        List<AbstractPlayer> players = new ArrayList<>();
+        List<Card> playersCards = new ArrayList<>();
+        Player humanPlayer = new Player("Bob");
+        board.getPlayers().add(humanPlayer);
+        players.add(humanPlayer);
+
+        Card card1 = new Card(1);
+        Card card2 = new Card(10);
+        Card card3 = new Card(100);
+        playersCards.add(card1);
+        playersCards.add(card3);
+        playersCards.add(card2);
     }
 
     @Test
@@ -43,6 +56,57 @@ class GameControllerTest {
 
     @Test
     void draw() {
+        Board board = new Board();
+        List<AbstractPlayer> players = new ArrayList<>();
+        List<Card> CardList = new ArrayList<>();
+        Player humanPlayer = new Player("Bob");
+        board.getPlayers().add(humanPlayer);
+        players.add(humanPlayer);
+
+        Card card1 = new Card(1);
+        Card card2 = new Card(10);
+        Card card3 = new Card(100);
+        Card card4 = new Card(12);
+        Card card5 = new Card(78);
+        Card card6 = new Card(98);
+        Card card7 = new Card(3);
+        Card card8 = new Card(43);
+        Card card9 = new Card(4);
+        Card card10 = new Card(26);
+        Card card11 = new Card(104);
+        CardList.add(card1);
+        CardList.add(card2);
+        CardList.add(card3);
+        CardList.add(card4);
+        CardList.add(card5);
+        CardList.add(card6);
+        CardList.add(card7);
+        CardList.add(card8);
+        CardList.add(card9);
+        CardList.add(card10);
+        CardList.add(card11);
+
+        for (AbstractPlayer player : board.getPlayers()) {
+            List<Card> nElements = CardList.subList(0, 10);
+            player.getHand().addAll(nElements);
+            for (Card card : player.getHand()) {
+                card.setPlayer(player);
+            }
+            CardList.removeAll(nElements);
+        }
+        Assertions.assertEquals(card1, humanPlayer.getHand().get(0));
+        Assertions.assertEquals(card2, humanPlayer.getHand().get(1));
+        Assertions.assertEquals(card3, humanPlayer.getHand().get(2));
+        Assertions.assertEquals(card4, humanPlayer.getHand().get(3));
+        Assertions.assertEquals(card5, humanPlayer.getHand().get(4));
+        Assertions.assertEquals(card6, humanPlayer.getHand().get(5));
+        Assertions.assertEquals(card7, humanPlayer.getHand().get(6));
+        Assertions.assertEquals(card8, humanPlayer.getHand().get(7));
+        Assertions.assertEquals(card9, humanPlayer.getHand().get(8));
+        Assertions.assertEquals(card10, humanPlayer.getHand().get(9));
+
+
+
     }
 
     @Test

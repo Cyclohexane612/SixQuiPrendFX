@@ -114,6 +114,15 @@ public class GameController {
 
 
     }
+    public void displayEndScreen() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("rankingview.fxml"));
+        Parent root = loader.load();
+
+        Stage stage = new Stage();
+        stage.setTitle("Classement");
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
 
     public boolean isAt66(List<AbstractPlayer> players) {
         boolean endGame = false;
