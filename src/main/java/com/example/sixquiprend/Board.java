@@ -1,6 +1,5 @@
-package com.example.sixquiprend.Objects;
+package com.example.sixquiprend;
 
-import com.example.sixquiprend.Players.AbstractPlayer;
 import lombok.Getter;
 import lombok.Setter;
 

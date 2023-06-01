@@ -8,7 +8,7 @@
 
 <?import javafx.collections.FXCollections?>
 <?import java.lang.Integer?>
-<StackPane xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sixquiprend.Controllers.HelloController">
+<StackPane xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sixquiprend.HelloController">
     <children>
         <ImageView>
             <image>

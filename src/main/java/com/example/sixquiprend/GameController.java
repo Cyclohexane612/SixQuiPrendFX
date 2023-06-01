@@ -1,13 +1,8 @@
-package com.example.sixquiprend.Controllers;
+package com.example.sixquiprend;
 
 
 import java.io.IOException;
 
-import com.example.sixquiprend.Objects.Board;
-import com.example.sixquiprend.Objects.Card;
-import com.example.sixquiprend.Players.AbstractPlayer;
-import com.example.sixquiprend.Players.IA;
-import com.example.sixquiprend.Players.Player;
 import javafx.animation.TranslateTransition;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
