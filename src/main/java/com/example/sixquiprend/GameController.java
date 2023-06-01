@@ -114,10 +114,11 @@ public class GameController {
 
     }
     public void displayEndScreen() throws IOException {
-
-        // Ouvrir une nouvelle scène
         FXMLLoader loader = new FXMLLoader(getClass().getResource("rankingview.fxml"));
         Parent newRoot = loader.load();
+
+        RankingViewController controller = loader.getController();
+        controller.setPlayers(board.getPlayers());
 
         Stage stage = new Stage();
         stage.setTitle("Classement");
@@ -209,8 +210,10 @@ public class GameController {
                 playAI(board.getPlayers(), playedCards);
                 // Méthode de distribution (Maxence)
                 distribution(board.getPlayers(), playedCards);
+
                 if(isAt66(board.getPlayers()) || isHandEmpty(board.getPlayers())) {
                    System.out.println("end");
+                   sortPlayers(board.getPlayers());
                     try {
                         displayEndScreen(); // Cette méthode peut potentiellement lancer une IOException
                     } catch (IOException e) {
