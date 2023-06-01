@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6d9d00df-c3ac-468f-8d0d-2c03acabc08a" name="Changes" comment="Jeu fini">
+    <list default="true" id="6d9d00df-c3ac-468f-8d0d-2c03acabc08a" name="Changes" comment="IA fini + pop up remplacé par des boutons en jeu">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/sixquiprend/Controllers/RankingViewController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sixquiprend/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sixquiprend/Card.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sixquiprend/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sixquiprend/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sixquiprend/IA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sixquiprend/IA.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/sixquiprend/rankingview.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/sixquiprend/rankingview.fxml" afterDir="false" />
     </list>
     <list id="d0f439ed-a6bd-41ec-ba60-ed53aa94b5d2" name="Changes by ayman" comment="" />
     <list id="ebbbb990-de72-4c06-b868-931a103f880e" name="Changes by luc" comment="" />
@@ -99,7 +98,7 @@
       <module name="SixQuiPrend" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.example.sixquiprend.*" />
+          <option name="PATTERN" value="com.example.sixquiprend.Controllers.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -111,7 +110,7 @@
       <module name="SixQuiPrend" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.example.sixquiprend.*" />
+          <option name="PATTERN" value="com.example.sixquiprend.Controllers.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -127,7 +126,7 @@
       <module name="SixQuiPrend" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.example.sixquiprend.*" />
+          <option name="PATTERN" value="com.example.sixquiprend.Controllers.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -143,7 +142,7 @@
       <module name="SixQuiPrend" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.example.sixquiprend.*" />
+          <option name="PATTERN" value="com.example.sixquiprend.Controllers.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
