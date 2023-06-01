@@ -1,6 +1,4 @@
-package com.example.sixquiprend.Controllers;
-
-import com.example.sixquiprend.Controllers.GameController;
+package com.example.sixquiprend;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;

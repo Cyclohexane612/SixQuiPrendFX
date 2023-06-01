@@ -1,7 +1,4 @@
-package com.example.sixquiprend.Players;
-
-import com.example.sixquiprend.Objects.Board;
-import com.example.sixquiprend.Objects.Card;
+package com.example.sixquiprend;
 
 import java.util.ArrayList;
 import java.util.List;

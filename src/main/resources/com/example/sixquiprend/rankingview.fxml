@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<?import javafx.scene.control.ListView?>
-<?import javafx.scene.layout.AnchorPane?>
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sixquiprend.GameController">
-    <children>
-        <ListView fx:id="playerListView" prefHeight="350.0" prefWidth="550.0" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="25.0" />
-    </children>
-</AnchorPane>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.sixquiprend.RankingViewController" alignment="CENTER">
+    <TableView fx:id="tableView" editable="false">
+        <columns>
+            <TableColumn fx:id="nameColumn" text="Nom" />
+            <TableColumn fx:id="tdbColumn" text="Nombre de têtes de bœuf" />
+        </columns>
+    </TableView>
+</VBox>
