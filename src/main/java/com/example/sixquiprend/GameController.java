@@ -87,9 +87,8 @@ public class GameController {
         draw(cardList);
         // Montre la main du joueur humain
         List<Card> playedCards = new ArrayList<Card>();
-        cardDisplayPlayers(humanPlayer, playedCards);
-
-        // On ditribue une carte sur chaque rangées
+        //cardDisplayPlayers(humanPlayer, playedCards);
+        // On distribue une carte sur chaque rangée
         List<List<Card>> rows = new ArrayList<>();
         rows.add(board.getRow1());
         rows.add(board.getRow2());
@@ -128,8 +127,9 @@ public class GameController {
         boolean endGame = false;
         for (AbstractPlayer player : players) {
             if (player.getTdb() >= 66) {
-                System.out.println("Le joueur :" + player.getName() + "a perdu car il a 66 pts");
-                return endGame = true;
+                System.out.println("Le joueur : " + player.getName() + " a perdu car il a 66 pts");
+                endGame = true;
+                return endGame;
             }
         }
         return endGame;
@@ -139,7 +139,8 @@ public class GameController {
         boolean endGame = false;
         if (players.get(0).getHand().isEmpty()) {
             System.out.println("Les joueurs n'ont plus de carte");
-            return endGame = true;
+            endGame = true;
+            return endGame;
         }
         return endGame;
     }
@@ -171,7 +172,7 @@ public class GameController {
     }
 
 
-    private void cardDisplayPlayers(Player player, List<Card> playedCards) {
+    private void cardDisplayPlayers(Player player, List<Card> playedCards){
         sortCards(player.getHand());
 
         FlowPane cardPane = new FlowPane();
@@ -220,6 +221,7 @@ public class GameController {
                 }
             });
         }
+
         cardPlayersContainer.getChildren().clear();
         cardPlayersContainer.getChildren().add(cardPane);
     }
@@ -335,7 +337,73 @@ public class GameController {
             int dif4 = num - board.getRow4().get(board.getRow4().size() - 1).getNumber();
 
             if (dif1 < 0 && dif2 < 0 && dif3 < 0 && dif4 < 0) {
-                Platform.runLater(() -> showPileOptions(card));
+                if (card.getPlayer()==players.get(0)) {
+                    Platform.runLater(() -> showPileOptions(card));
+                }else{
+                    int tdb1 = 0;
+                    for (Card cardfortdb : board.getRow1()) {
+                        tdb1 += cardfortdb.getTdb();
+                    }
+                    int tdb2 = 0;
+                    for (Card cardfortdb : board.getRow2()) {
+                        tdb2 += cardfortdb.getTdb();
+                    }
+                    int tdb3 = 0;
+                    for (Card cardfortdb : board.getRow3()) {
+                        tdb3 += cardfortdb.getTdb();
+                    }
+                    int tdb4 = 0;
+                    for (Card cardfortdb : board.getRow4()) {
+                        tdb4 += cardfortdb.getTdb();
+                    }
+
+                    int tdbDiff = Integer.MAX_VALUE;
+                    int lastCard = 0;
+                    int pileAI = 0;
+                    // prend la pile avec le moins de Tdb, si ce nombre est égal entre 2 piles, prend celle avec la derniere carte la plus haute
+                    if (tdb1 < tdbDiff || (tdb1==tdbDiff && board.getRow1().get(board.getRow1().size() - 1).getNumber() > lastCard)) {
+                        tdbDiff = tdb1;
+                        pileAI = 1;
+                        lastCard = board.getRow1().get(board.getRow1().size() - 1).getNumber();
+                    }
+                    if (tdb2 < tdbDiff || (tdb2==tdbDiff && board.getRow2().get(board.getRow2().size() - 1).getNumber() > lastCard)) {
+                        tdbDiff = tdb2;
+                        pileAI = 2;
+                        lastCard = board.getRow2().get(board.getRow2().size() - 1).getNumber();
+                    }
+                    if (tdb3 < tdbDiff || (tdb3==tdbDiff && board.getRow3().get(board.getRow3().size() - 1).getNumber() > lastCard)) {
+                        tdbDiff = tdb3;
+                        pileAI = 3;
+                        lastCard = board.getRow3().get(board.getRow3().size() - 1).getNumber();
+                    }
+                    if (tdb4 < tdbDiff || (tdb4==tdbDiff && board.getRow4().get(board.getRow4().size() - 1).getNumber() > lastCard)) {
+                        tdbDiff = tdb4;
+                        pileAI = 4;
+                        lastCard = board.getRow4().get(board.getRow4().size() - 1).getNumber();
+                    }
+
+                    if (pileAI == 1) {
+                        card.getPlayer().getDiscard().addAll(board.getRow1());
+                        board.getRow1().clear();
+                        board.getRow1().add(card);
+                        System.out.println(card.getPlayer().getName()+" pile 1");
+                    } else if (pileAI == 2) {
+                        card.getPlayer().getDiscard().addAll(board.getRow2());
+                        board.getRow2().clear();
+                        board.getRow2().add(card);
+                        System.out.println(card.getPlayer().getName()+" pile 2");
+                    } else if (pileAI == 3) {
+                        card.getPlayer().getDiscard().addAll(board.getRow3());
+                        board.getRow3().clear();
+                        board.getRow3().add(card);
+                        System.out.println(card.getPlayer().getName()+" pile 3");
+                    } else if (pileAI == 4) {
+                        card.getPlayer().getDiscard().addAll(board.getRow4());
+                        board.getRow4().clear();
+                        board.getRow4().add(card);
+                        System.out.println(card.getPlayer().getName()+" pile 4");
+                    }
+                }
             } else {
                 int minDiff = Integer.MAX_VALUE;
                 if (dif1 < minDiff && dif1 > 0) {
@@ -395,24 +463,13 @@ public class GameController {
 
     private void selectPile(Card card, int pileNumber) {
         AbstractPlayer player = card.getPlayer();
-        List<Card> selectedPile;
-        switch (pileNumber) {
-            case 1:
-                selectedPile = board.getRow1();
-                break;
-            case 2:
-                selectedPile = board.getRow2();
-                break;
-            case 3:
-                selectedPile = board.getRow3();
-                break;
-            case 4:
-                selectedPile = board.getRow4();
-                break;
-            default:
-                selectedPile = Collections.emptyList();
-                break;
-        }
+        List<Card> selectedPile = switch (pileNumber) {
+            case 1 -> board.getRow1();
+            case 2 -> board.getRow2();
+            case 3 -> board.getRow3();
+            case 4 -> board.getRow4();
+            default -> Collections.emptyList();
+        };
 
         player.getDiscard().addAll(selectedPile);
         selectedPile.clear();

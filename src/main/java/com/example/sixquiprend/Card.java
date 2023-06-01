@@ -21,7 +21,7 @@ public class Card {
     private final int number;
     @Getter @Setter
     private AbstractPlayer player;
-    @Getter
+    @Getter @Setter
     private int tdb;
     @FXML
     private Label numberLabel;
@@ -96,6 +96,6 @@ public class Card {
         // Changer la police
         numberLabel.setFont(font);
         // Changer la couleur
-        numberLabel.setTextFill(Color.PURPLE);
+        numberLabel.setTextFill(Color.rgb(70, 21, 128));
     }
 }
