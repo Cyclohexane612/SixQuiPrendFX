@@ -1,9 +1,12 @@
-package com.example.sixquiprend;
+package com.example.sixquiprend.Players;
+
+import com.example.sixquiprend.Objects.Board;
+import com.example.sixquiprend.Objects.Card;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class IA extends AbstractPlayer{
+public class IA extends AbstractPlayer {
     public IA(String name) {
         super(name);
     }
@@ -18,7 +21,7 @@ public class IA extends AbstractPlayer{
         return totalTdb;
     }
 
-    public Card playAI(IA ia,Board board){
+    public Card playAI(IA ia, Board board){
         Card cardplayed = ia.getHand().get(0);
         for (Card card : ia.getHand()) {
             System.out.println(card.getNumber()+" TDB:"+card.getTdb());

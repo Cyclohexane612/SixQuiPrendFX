@@ -1,13 +1,14 @@
 package com.example.sixquiprend;
 
-import javafx.scene.media.MediaPlayer;
+import com.example.sixquiprend.Objects.Board;
+import com.example.sixquiprend.Objects.Card;
+import com.example.sixquiprend.Players.AbstractPlayer;
+import com.example.sixquiprend.Players.Player;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class GameControllerTest {
 

@@ -1,5 +1,6 @@
-package com.example.sixquiprend;
+package com.example.sixquiprend.Objects;
 
+import com.example.sixquiprend.Players.AbstractPlayer;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
@@ -8,10 +9,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
-import javafx.scene.text.FontWeight;
 import lombok.Getter;
 import lombok.Setter;
-import org.controlsfx.control.decoration.GraphicDecoration;
 
 public class Card {
     @FXML

@@ -9,4 +9,10 @@ module com.example.sixquiprend {
 
     opens com.example.sixquiprend to javafx.fxml;
     exports com.example.sixquiprend;
+    exports com.example.sixquiprend.Players;
+    opens com.example.sixquiprend.Players to javafx.fxml;
+    exports com.example.sixquiprend.Controllers;
+    opens com.example.sixquiprend.Controllers to javafx.fxml;
+    exports com.example.sixquiprend.Objects;
+    opens com.example.sixquiprend.Objects to javafx.fxml;
 }

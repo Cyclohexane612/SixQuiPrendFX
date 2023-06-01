@@ -1,6 +1,6 @@
-package com.example.sixquiprend;
-import java.util.ArrayList;
-import java.util.List;
+package com.example.sixquiprend.Players;
+import com.example.sixquiprend.Objects.Card;
+
 public class Player extends AbstractPlayer {
     public Player(String name){
         super(name);
