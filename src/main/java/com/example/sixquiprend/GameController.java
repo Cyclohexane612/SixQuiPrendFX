@@ -1,17 +1,21 @@
 package com.example.sixquiprend;
 
 
+import java.io.IOException;
 import java.util.concurrent.ThreadLocalRandom;
 import javafx.animation.TranslateTransition;
 import javafx.application.Platform;
+import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
-import javafx.scene.control.Alert;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
@@ -19,7 +23,10 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+import javafx.stage.Stage;
 import javafx.util.Duration;
+import javafx.collections.ObservableList;
+
 
 import java.util.*;
 
@@ -44,7 +51,9 @@ public class GameController {
     private Board board;
     private List<Label> playerLabels;
     private List<Card> cardList;
-    private Boolean endgame;
+    @FXML
+    private ListView<String> playerListView;
+    private Boolean endgame = false;
 
     public void initialize() {
         board = new Board();
@@ -52,7 +61,7 @@ public class GameController {
         cardList = new ArrayList<>();
     }
 
-    public void receivePlayerInformation(String playerName, int aiOpponents) {
+    public void receivePlayerInformation(String playerName, int aiOpponents) throws IOException {
         System.out.println("Player name: " + playerName);
         System.out.println("Number of AI opponents: " + aiOpponents);
         // Créez le joueur humain
@@ -95,14 +104,14 @@ public class GameController {
         }
         // Affichage board
         updateBoard(board);
-        //Jeu s'arrête quand on a déposer 10 cartes ou quand on a un joueur à 66
-        while (isAt66(board.getPlayers()) || isHandEmpty(board.getPlayers())) {
+        //Jeu s'arrête quand on a déposé 10 cartes ou quand on a un joueur à 66
+        System.out.println("66 :"+isAt66(board.getPlayers())+"; Empty : "+isHandEmpty(board.getPlayers()) + " Ou : " + (isAt66(board.getPlayers())||isHandEmpty(board.getPlayers())));
+        //while(!isAt66(board.getPlayers()) && !isHandEmpty(board.getPlayers())) {
+         //   System.out.println("boucle");
             cardDisplayPlayers(humanPlayer, playedCards);
-        }
-        //Méthode pour trier les joueurs en fonction de leur tdb (classement)
-        sortPlayers(board.getPlayers());
-        System.out.println("le gagnant est : " + board.getPlayers().get(0).getName() + "avec " + board.getPlayers().get(0).getTdb() + "tdb");
-        //Méthode qui affiche classement des joueurs
+        //}
+
+
 
     }
 
@@ -125,6 +134,21 @@ public class GameController {
         }
         return endGame;
     }
+
+
+
+    public void displayRanking(List<Player> players) {
+        ObservableList<String> playerItems = FXCollections.observableArrayList();
+
+        for (int i = 0; i < players.size(); i++) {
+            Player player = players.get(i);
+            String playerInfo = (i + 1) + ". " + player.getName() + " - TdB: " + player.getTdb();
+            playerItems.add(playerInfo);
+        }
+
+        playerListView.setItems(playerItems);
+    }
+
 
 
     public void playMusic() {
@@ -170,7 +194,15 @@ public class GameController {
                 playAI(board.getPlayers(), playedCards);
                 // Méthode de distribution (Maxence)
                 distribution(board.getPlayers(), playedCards);
-
+                if(isAt66(board.getPlayers()) || isHandEmpty(board.getPlayers())) {
+                   System.out.println("end");
+                    try {
+                        displayEndScreen(); // Cette méthode peut potentiellement lancer une IOException
+                    } catch (IOException e) {
+                        // Traitement de l'exception IOException
+                        e.printStackTrace(); // Affichage de la trace de la pile pour le débogage
+                    }
+                }
                 // Réaffichage des cartes restantes dans la main du joueur
                 cardPane.getChildren().clear();
                 for (Card updatedCard : player.getHand()) {
@@ -196,7 +228,6 @@ public class GameController {
     private void displayCards(List<Card> cards, VBox row) {
         // Supprimer les cartes précédentes affichées
         row.getChildren().clear();
-
         FlowPane cardPane = new FlowPane();
         cardPane.setPadding(new Insets(10));
         cardPane.setHgap(10);
@@ -339,7 +370,6 @@ public class GameController {
                 }
             }
         }
-
         updateBoard(board);
         playedCards.clear();
         updatePlayerTdb(board.getPlayers());
@@ -385,11 +415,6 @@ public class GameController {
         updateBoard(board);
         updatePlayerTdb(board.getPlayers());
     }
-
-
-
-
-
 
     public void sortCards(List<Card> cards) {
         for (int i = 1; i < cards.size(); i++) {

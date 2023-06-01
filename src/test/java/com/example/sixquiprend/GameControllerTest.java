@@ -36,8 +36,10 @@ class GameControllerTest {
     }
 
     @Test
-    void sortCards() {
+    void testSortCards() {
+
     }
+
 
     @Test
     void draw() {

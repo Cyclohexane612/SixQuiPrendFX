@@ -10,6 +10,8 @@ import javafx.scene.input.KeyCombination;
 import javafx.scene.layout.VBox;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import javafx.scene.control.Alert;
 import lombok.Getter;
@@ -32,8 +34,20 @@ public class HelloController {
     private ComboBox<Integer> aiComboBox;
     @Getter
     private MediaPlayer mediaPlayer;
-
     private GameController gameController;
+    @FXML
+    private Label opponentsLabel, nameLabel;
+
+
+    public void initialize() {
+        // Charger la police depuis le fichier .ttf
+        Font font = Font.loadFont(getClass().getResourceAsStream("/police/SuperMario256.ttf"), 24);
+        // Appliquer la police personnalisée au label
+        opponentsLabel.setFont(font);
+        opponentsLabel.setTextFill(Color.rgb(70, 21, 128));
+        nameLabel.setFont(font);
+        nameLabel.setTextFill(Color.rgb(70, 21, 128));
+    }
 
     public void playMusic(){
         String musicPath = getClass().getResource("/music/title.mp3").toExternalForm();

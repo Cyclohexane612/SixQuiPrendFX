@@ -66,13 +66,13 @@ public class Card {
 
     public void configureCardAppearance() {
         if (tdb == 7) {
-            image.setBackground(new Background(new BackgroundFill(Color.RED, null, null)));
+            image.setBackground(new Background(new BackgroundFill(Color.rgb(255, 140, 123), null, null)));
         } else if (tdb == 5) {
             image.setBackground(new Background(new BackgroundFill(Color.ORANGE, null, null)));
         } else if (tdb == 3) {
             image.setBackground(new Background(new BackgroundFill(Color.YELLOW, null, null)));
         } else if (tdb == 2) {
-            image.setBackground(new Background(new BackgroundFill(Color.BLUE, null, null)));
+            image.setBackground(new Background(new BackgroundFill(Color.rgb(150, 218, 254), null, null)));
         } else {
             image.setBackground(new Background(new BackgroundFill(Color.WHITE, null, null)));
         }
@@ -91,8 +91,9 @@ public class Card {
         }
     }
     public void configureLabelAppearance() {
+        // Charger la police depuis le fichier .ttf
+        Font font = Font.loadFont(getClass().getResourceAsStream("/police/SuperMario256.ttf"), 24);
         // Changer la police
-        Font font = Font.font("Arial", FontWeight.BOLD, 24);
         numberLabel.setFont(font);
         // Changer la couleur
         numberLabel.setTextFill(Color.PURPLE);

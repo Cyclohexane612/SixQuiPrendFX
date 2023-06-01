@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.control.*?>
 
 <StackPane xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sixquiprend.GameController">
     <children>
@@ -14,13 +15,13 @@
 
         <HBox alignment="TOP_RIGHT" spacing="20.0">
             <Region HBox.hgrow="ALWAYS" />
-            <VBox spacing="20.0" alignment="TOP_RIGHT">
+            <VBox alignment="TOP_RIGHT" spacing="20.0">
                 <ImageView fitHeight="100.0" fitWidth="225.0">
                     <image>
                         <Image url="@../../../image/LOGO.png" />
                     </image>
                 </ImageView>
-                <VBox fx:id="playersContainer" spacing="20.0" alignment="TOP_RIGHT">
+                <VBox fx:id="playersContainer" alignment="TOP_RIGHT" spacing="20.0">
 
                 </VBox>
             </VBox>
@@ -39,15 +40,15 @@
             </VBox>
         </VBox>
 
-        <VBox fx:id="pileOptions" alignment="CENTER_RIGHT" spacing="10.0" visible="false" style="-fx-border-color: black; -fx-border-width: 1px; -fx-padding: 10px; -fx-margin: -50px 0 0 -50px;">
+        <VBox fx:id="pileOptions" alignment="CENTER_LEFT" spacing="10.0" style="-fx-border-color: black; -fx-border-width: 1px; -fx-padding: 10px;" visible="false" StackPane.alignment="TOP_LEFT">
             <Label text="Choisissez une pile :" />
             <Button fx:id="buttonRow1" text="Pile 1" />
             <Button fx:id="buttonRow2" text="Pile 2" />
             <Button fx:id="buttonRow3" text="Pile 3" />
             <Button fx:id="buttonRow4" text="Pile 4" />
+         <StackPane.margin>
+            <Insets />
+         </StackPane.margin>
         </VBox>
     </children>
 </StackPane>
-
-
-
