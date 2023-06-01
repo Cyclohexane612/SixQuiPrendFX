@@ -115,6 +115,7 @@ public class IA extends AbstractPlayer{
                     tdbpile=0;
                 }
 
+                // calcul grandeur de la derniere carte
                 if (row.get(row.size()-1).getNumber()>=100){
                     gap=1;
                 } else{
@@ -149,7 +150,7 @@ public class IA extends AbstractPlayer{
                 }
 
                 // calcul facteur gap
-                int dif = card.getNumber() - row.get(row.size()-1).getNumber();;
+                int dif = card.getNumber() - row.get(row.size()-1).getNumber();
                 if (position==1 || position==0.75){
                     if (dif <= 5 ){gap= 1;}
                     else if (dif <= 10 ){gap= 0.75;}
