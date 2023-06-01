@@ -23,6 +23,8 @@ public class Card {
     private AbstractPlayer player;
     @Getter @Setter
     private int tdb;
+    @Getter @Setter
+    private double attractivity;
     @FXML
     private Label numberLabel;
     @FXML

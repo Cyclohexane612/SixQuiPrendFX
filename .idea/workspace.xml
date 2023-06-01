@@ -4,27 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6d9d00df-c3ac-468f-8d0d-2c03acabc08a" name="Changes" comment="IA fini + pop up remplacé par des boutons en jeu">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/sixquiprend/rankingview.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/police/SuperMario256.ttf" afterDir="false" />
+    <list default="true" id="6d9d00df-c3ac-468f-8d0d-2c03acabc08a" name="Changes" comment="Jeu fini">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sixquiprend/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sixquiprend/Card.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sixquiprend/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sixquiprend/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sixquiprend/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sixquiprend/HelloController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/sixquiprend/game.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/sixquiprend/game.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/sixquiprend/title_screen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/sixquiprend/title_screen.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/sixquiprend/GameControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/sixquiprend/GameControllerTest.java" afterDir="false" />
-    </list>
-    <list id="d0f439ed-a6bd-41ec-ba60-ed53aa94b5d2" name="Changes by ayman" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sixquiprend/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sixquiprend/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/sixquiprend/GameControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/sixquiprend/GameControllerTest.java" afterDir="false" />
-    </list>
-    <list id="ebbbb990-de72-4c06-b868-931a103f880e" name="Changes by luc" comment="" />
-    <list id="9ba8062a-aff4-4ddc-874c-380538c0b969" name="Changes by maxen" comment="">
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sixquiprend/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sixquiprend/Card.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sixquiprend/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sixquiprend/GameController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sixquiprend/IA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sixquiprend/IA.java" afterDir="false" />
     </list>
+    <list id="d0f439ed-a6bd-41ec-ba60-ed53aa94b5d2" name="Changes by ayman" comment="" />
+    <list id="ebbbb990-de72-4c06-b868-931a103f880e" name="Changes by luc" comment="" />
+    <list id="9ba8062a-aff4-4ddc-874c-380538c0b969" name="Changes by maxen" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -55,55 +43,6 @@
       </UrlAndAccount>
     </option>
   </component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/src/main/java/com/example/sixquiprend/Card.java">
-      <ranges>
-        <range start1="23" end1="24" start2="23" end2="24" changelist="9ba8062a-aff4-4ddc-874c-380538c0b969" />
-        <range start1="68" end1="69" start2="68" end2="69" changelist="6d9d00df-c3ac-468f-8d0d-2c03acabc08a" />
-        <range start1="74" end1="75" start2="74" end2="75" changelist="6d9d00df-c3ac-468f-8d0d-2c03acabc08a" />
-        <range start1="93" end1="93" start2="93" end2="95" changelist="6d9d00df-c3ac-468f-8d0d-2c03acabc08a" />
-        <range start1="94" end1="95" start2="96" end2="96" changelist="6d9d00df-c3ac-468f-8d0d-2c03acabc08a" />
-        <range start1="97" end1="98" start2="98" end2="99" changelist="9ba8062a-aff4-4ddc-874c-380538c0b969" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/main/java/com/example/sixquiprend/GameController.java">
-      <ranges>
-        <range start1="3" end1="3" start2="3" end2="4" changelist="6d9d00df-c3ac-468f-8d0d-2c03acabc08a" />
-        <range start1="6" end1="6" start2="7" end2="8" changelist="6d9d00df-c3ac-468f-8d0d-2c03acabc08a" />
-        <range start1="7" end1="7" start2="9" end2="10" changelist="6d9d00df-c3ac-468f-8d0d-2c03acabc08a" />
-        <range start1="10" end1="11" start2="13" end2="15" changelist="6d9d00df-c3ac-468f-8d0d-2c03acabc08a" />
-        <range start1="12" end1="13" start2="16" end2="16" changelist="6d9d00df-c3ac-468f-8d0d-2c03acabc08a" />
-        <range start1="14" end1="14" start2="17" end2="18" changelist="6d9d00df-c3ac-468f-8d0d-2c03acabc08a" />
-        <range start1="21" end1="21" start2="25" end2="26" changelist="6d9d00df-c3ac-468f-8d0d-2c03acabc08a" />
-        <range start1="22" end1="22" start2="27" end2="29" changelist="6d9d00df-c3ac-468f-8d0d-2c03acabc08a" />
-        <range start1="46" end1="47" start2="53" end2="56" changelist="6d9d00df-c3ac-468f-8d0d-2c03acabc08a" />
-        <range start1="54" end1="55" start2="63" end2="64" changelist="6d9d00df-c3ac-468f-8d0d-2c03acabc08a" />
-        <range start1="80" end1="83" start2="89" end2="91" changelist="9ba8062a-aff4-4ddc-874c-380538c0b969" />
-        <range start1="97" end1="99" start2="105" end2="109" changelist="6d9d00df-c3ac-468f-8d0d-2c03acabc08a" />
-        <range start1="100" end1="105" start2="110" end2="113" changelist="6d9d00df-c3ac-468f-8d0d-2c03acabc08a" />
-        <range start1="107" end1="107" start2="115" end2="124" changelist="d0f439ed-a6bd-41ec-ba60-ed53aa94b5d2" />
-        <range start1="112" end1="114" start2="129" end2="132" changelist="9ba8062a-aff4-4ddc-874c-380538c0b969" />
-        <range start1="123" end1="124" start2="141" end2="143" changelist="9ba8062a-aff4-4ddc-874c-380538c0b969" />
-        <range start1="127" end1="127" start2="146" end2="161" changelist="6d9d00df-c3ac-468f-8d0d-2c03acabc08a" />
-        <range start1="140" end1="141" start2="174" end2="175" changelist="9ba8062a-aff4-4ddc-874c-380538c0b969" />
-        <range start1="172" end1="173" start2="206" end2="215" changelist="6d9d00df-c3ac-468f-8d0d-2c03acabc08a" />
-        <range start1="181" end1="181" start2="223" end2="224" changelist="9ba8062a-aff4-4ddc-874c-380538c0b969" />
-        <range start1="198" end1="199" start2="241" end2="241" changelist="6d9d00df-c3ac-468f-8d0d-2c03acabc08a" />
-        <range start1="297" end1="298" start2="339" end2="406" changelist="9ba8062a-aff4-4ddc-874c-380538c0b969" />
-        <range start1="341" end1="342" start2="449" end2="449" changelist="6d9d00df-c3ac-468f-8d0d-2c03acabc08a" />
-        <range start1="358" end1="376" start2="465" end2="472" changelist="9ba8062a-aff4-4ddc-874c-380538c0b969" />
-        <range start1="387" end1="392" start2="483" end2="483" changelist="6d9d00df-c3ac-468f-8d0d-2c03acabc08a" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/test/java/com/example/sixquiprend/GameControllerTest.java">
-      <ranges>
-        <range start1="35" end1="35" start2="35" end2="48" changelist="d0f439ed-a6bd-41ec-ba60-ed53aa94b5d2" />
-        <range start1="38" end1="39" start2="51" end2="53" changelist="6d9d00df-c3ac-468f-8d0d-2c03acabc08a" />
-        <range start1="40" end1="40" start2="54" end2="55" changelist="6d9d00df-c3ac-468f-8d0d-2c03acabc08a" />
-        <range start1="43" end1="43" start2="58" end2="109" changelist="d0f439ed-a6bd-41ec-ba60-ed53aa94b5d2" />
-      </ranges>
-    </file>
-  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -120,26 +59,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "last_opened_file_path": "C:/Users/maxen/IdeaProjects/HarryPotterAtHomeJava",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "reference.settings.ide.settings.uml",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/maxen/IdeaProjects/HarryPotterAtHomeJava&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.ide.settings.uml&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/resources/police" />

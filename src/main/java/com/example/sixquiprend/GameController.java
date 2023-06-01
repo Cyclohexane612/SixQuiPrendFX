@@ -67,11 +67,11 @@ public class GameController {
         // Créez le joueur humain
         Player humanPlayer = new Player(playerName);
         // Créez les joueurs IA
-        List<Player> aiPlayers = new ArrayList<>();
+        List<AbstractPlayer> aiPlayers = new ArrayList<>();
         for (int i = 0; i < aiOpponents; i++) {
             String[] aiNames = {"Ontos", "Logos", "Pneuma", "Tora", "Poppi", "Rex", "Nia", "Morag", "Zyk"};
             String aiPlayerName = (i < aiNames.length) ? aiNames[i] : "AI Player " + (i + 1);
-            Player aiPlayer = new Player(aiPlayerName);
+            IA aiPlayer = new IA(aiPlayerName);
             aiPlayers.add(aiPlayer);
         }
         // initialise le board et les joueurs
@@ -535,9 +535,11 @@ public class GameController {
 
     public void playAI(List<AbstractPlayer> players, List<Card> playedCards) {
         for (AbstractPlayer AI : players.subList(1, players.size())) {
-            int num = ThreadLocalRandom.current().nextInt(0, AI.getHand().size());
-            playedCards.add(AI.getHand().get(num));
-            AI.getHand().remove(AI.getHand().get(num));
+            sortCards(AI.getHand());
+            //int num = ThreadLocalRandom.current().nextInt(0, AI.getHand().size());
+            Card cardplayed = ((IA) AI).playAI((IA) AI, board);
+            playedCards.add(cardplayed);
+            AI.getHand().remove(cardplayed);
         }
     }
 }
