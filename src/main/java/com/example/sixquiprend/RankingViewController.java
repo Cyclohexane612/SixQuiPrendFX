@@ -12,7 +12,6 @@ import java.util.List;
 public class RankingViewController {
     @FXML
     private TableView<AbstractPlayer> tableView;
-
     private ObservableList<AbstractPlayer> players = FXCollections.observableArrayList();
 
     private boolean columnsAdded = false;
@@ -22,9 +21,6 @@ public class RankingViewController {
         tableView.setItems(players);
         tableView.setEditable(false);
         tableView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
-
-
-
     }
 
     public void setPlayers(List<AbstractPlayer> players) {
@@ -45,8 +41,6 @@ public class RankingViewController {
         }
     }
 
-
-
     private void addColumns() {
         tableView.getColumns().clear();
 
@@ -60,12 +54,6 @@ public class RankingViewController {
 
         columnsAdded = true;
     }
-
-
-
-
-
-
     // Autres méthodes du contrôleur...
 }
 
