@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
 
 <StackPane xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sixquiprend.GameController">
     <children>
@@ -39,16 +39,21 @@
 
             </VBox>
         </VBox>
+        <StackPane fx:id="pileOptions" alignment="BOTTOM_RIGHT" visible="true">
+            <Rectangle fill="white" height="181.0" stroke="black" strokeWidth="1" width="126.0" />
+            <VBox alignment="BOTTOM_RIGHT" spacing="10.0" style="-fx-padding: 10px;">
+                <Label text="Choisissez une pile :" />
+                <Button fx:id="buttonRow1" text="Pile 1" textAlignment="CENTER" />
+                <Button fx:id="buttonRow2" text="Pile 2" />
+                <Button fx:id="buttonRow3" text="Pile 3" />
+                <Button fx:id="buttonRow4" text="Pile 4" />
+            </VBox>
+        </StackPane>
 
-        <VBox fx:id="pileOptions" alignment="BOTTOM_RIGHT" spacing="10.0" style="-fx-border-color: black; -fx-border-width: 1px; -fx-padding: 10px;" visible="false" StackPane.alignment="TOP_LEFT">
-            <Label text="Choisissez une pile :" />
-            <Button fx:id="buttonRow1" text="Pile 1" />
-            <Button fx:id="buttonRow2" text="Pile 2" />
-            <Button fx:id="buttonRow3" text="Pile 3" />
-            <Button fx:id="buttonRow4" text="Pile 4" />
-         <StackPane.margin>
-            <Insets />
-         </StackPane.margin>
-        </VBox>
+
+
+
+
+
     </children>
 </StackPane>

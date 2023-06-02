@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6d9d00df-c3ac-468f-8d0d-2c03acabc08a" name="Changes" comment="Pacman pour Luc">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/image/LucarioIcon.png" afterDir="false" />
+    <list default="true" id="6d9d00df-c3ac-468f-8d0d-2c03acabc08a" name="Changes" comment="les piles en bas à droite + LUcario">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sixquiprend/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sixquiprend/GameController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/sixquiprend/game.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/sixquiprend/game.fxml" afterDir="false" />
@@ -200,7 +199,7 @@
       <workItem from="1685688609925" duration="1056000" />
       <workItem from="1685689959648" duration="385000" />
       <workItem from="1685690767775" duration="1570000" />
-      <workItem from="1685694070370" duration="4296000" />
+      <workItem from="1685694070370" duration="6214000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1683893490932</created>
@@ -300,7 +299,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685697600405</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="les piles en bas à droite + LUcario">
+      <created>1685700075043</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1685700075043</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -331,7 +337,8 @@
     <MESSAGE value="Classement" />
     <MESSAGE value="Mise à jour qui marche" />
     <MESSAGE value="Pacman pour Luc" />
-    <option name="LAST_COMMIT_MESSAGE" value="Pacman pour Luc" />
+    <MESSAGE value="les piles en bas à droite + LUcario" />
+    <option name="LAST_COMMIT_MESSAGE" value="les piles en bas à droite + LUcario" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

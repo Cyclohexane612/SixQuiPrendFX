@@ -43,7 +43,7 @@ public class GameController {
     @FXML
     private VBox row4;
     @FXML
-    private VBox pileOptions;
+    private StackPane pileOptions;
     @FXML
     private VBox cardPlayersContainer;
     @FXML
