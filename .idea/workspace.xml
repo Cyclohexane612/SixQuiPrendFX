@@ -95,7 +95,7 @@
       <recent name="com.example.sixquiprend" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.MainApplication">
     <configuration name="MainApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.sixquiprend.MainApplication" />
       <module name="SixQuiPrend" />

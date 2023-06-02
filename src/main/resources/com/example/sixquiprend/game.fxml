@@ -39,7 +39,7 @@
 
             </VBox>
         </VBox>
-        <StackPane fx:id="pileOptions" alignment="BOTTOM_RIGHT" visible="true">
+        <StackPane fx:id="pileOptions" alignment="BOTTOM_RIGHT" visible="false">
             <Rectangle fill="white" height="181.0" stroke="black" strokeWidth="1" width="126.0" />
             <VBox alignment="BOTTOM_RIGHT" spacing="10.0" style="-fx-padding: 10px;">
                 <Label text="Choisissez une pile :" />
