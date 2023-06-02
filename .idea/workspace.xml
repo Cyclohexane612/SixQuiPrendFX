@@ -5,10 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6d9d00df-c3ac-468f-8d0d-2c03acabc08a" name="Changes" comment="Mise à jour qui marche">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/image/pac.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sixquiprend/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sixquiprend/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sixquiprend/RankingViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sixquiprend/RankingViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/sixquiprend/rankingview.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/sixquiprend/rankingview.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/sixquiprend/GameControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/sixquiprend/GameControllerTest.java" afterDir="false" />
     </list>
     <list id="d0f439ed-a6bd-41ec-ba60-ed53aa94b5d2" name="Changes by ayman" comment="" />
     <list id="ebbbb990-de72-4c06-b868-931a103f880e" name="Changes by luc" comment="" />
@@ -81,10 +81,10 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/image" />
       <recent name="$PROJECT_DIR$/src/main/resources/police" />
       <recent name="$PROJECT_DIR$/src/main/resources/music" />
       <recent name="$PROJECT_DIR$/src/main/resources/video" />
-      <recent name="$PROJECT_DIR$/src/main/resources/image" />
     </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
@@ -196,7 +196,11 @@
       <workItem from="1685572542592" duration="3950000" />
       <workItem from="1685620865166" duration="1377000" />
       <workItem from="1685633612222" duration="11171000" />
-      <workItem from="1685656562269" duration="2770000" />
+      <workItem from="1685656562269" duration="2992000" />
+      <workItem from="1685688609925" duration="1056000" />
+      <workItem from="1685689959648" duration="385000" />
+      <workItem from="1685690767775" duration="1570000" />
+      <workItem from="1685694070370" duration="1849000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1683893490932</created>
@@ -282,7 +286,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685656866710</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Mise à jour qui marche">
+      <created>1685659572324</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1685659572324</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
