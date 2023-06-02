@@ -40,7 +40,7 @@
             </VBox>
         </VBox>
 
-        <VBox fx:id="pileOptions" alignment="CENTER_LEFT" spacing="10.0" style="-fx-border-color: black; -fx-border-width: 1px; -fx-padding: 10px;" visible="false" StackPane.alignment="TOP_LEFT">
+        <VBox fx:id="pileOptions" alignment="BOTTOM_RIGHT" spacing="10.0" style="-fx-border-color: black; -fx-border-width: 1px; -fx-padding: 10px;" visible="false" StackPane.alignment="TOP_LEFT">
             <Label text="Choisissez une pile :" />
             <Button fx:id="buttonRow1" text="Pile 1" />
             <Button fx:id="buttonRow2" text="Pile 2" />

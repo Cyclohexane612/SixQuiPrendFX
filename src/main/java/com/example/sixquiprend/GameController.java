@@ -270,10 +270,10 @@ public class GameController {
             rectangle.setFill(Color.WHITE);
             rectangle.setStroke(Color.BLACK);
             String tdbImagePath = getClass().getResource("/image/tdb.png").toExternalForm();
-            System.out.println("Tu t'appelles " + player.getName());
             if (player.getName().equals("Luc")) {
-                System.out.println("Tu t'appelles Luc");
                 tdbImagePath = getClass().getResource("/image/pac.png").toExternalForm();
+            } else if (player.getName().equals("Max")) {
+                tdbImagePath = getClass().getResource("/image/LucarioIcon.png").toExternalForm();
             }
 
             Image tdbImage = new Image(tdbImagePath);
