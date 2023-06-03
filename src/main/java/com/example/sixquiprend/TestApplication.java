@@ -1,5 +1,6 @@
 package com.example.sixquiprend;
 
+import com.example.sixquiprend.Objects.Card;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;

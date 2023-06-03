@@ -1,5 +1,6 @@
-package com.example.sixquiprend;
+package com.example.sixquiprend.Objects;
 
+import com.example.sixquiprend.Players.AbstractPlayer;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;

@@ -3,9 +3,13 @@ package com.example.sixquiprend;
 
 import java.io.IOException;
 
+import com.example.sixquiprend.Objects.Board;
+import com.example.sixquiprend.Objects.Card;
+import com.example.sixquiprend.Players.AbstractPlayer;
+import com.example.sixquiprend.Players.IA;
+import com.example.sixquiprend.Players.Player;
 import javafx.animation.TranslateTransition;
 import javafx.application.Platform;
-import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
@@ -25,7 +29,6 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-import javafx.collections.ObservableList;
 
 
 import java.util.*;

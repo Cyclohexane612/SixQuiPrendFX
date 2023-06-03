@@ -1,5 +1,9 @@
 package com.example.sixquiprend;
 
+import com.example.sixquiprend.Objects.Board;
+import com.example.sixquiprend.Objects.Card;
+import com.example.sixquiprend.Players.AbstractPlayer;
+import com.example.sixquiprend.Players.Player;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

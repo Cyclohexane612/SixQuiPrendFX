@@ -1,6 +1,5 @@
-package com.example.sixquiprend;
-import com.example.sixquiprend.AbstractPlayer;
-import com.example.sixquiprend.Card;
+package com.example.sixquiprend.Players;
+import com.example.sixquiprend.Objects.Card;
 
 public class Player extends AbstractPlayer {
     public Player(String name){
