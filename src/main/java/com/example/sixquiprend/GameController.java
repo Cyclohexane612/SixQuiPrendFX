@@ -43,7 +43,7 @@ public class GameController {
     @FXML
     private VBox row4;
     @FXML
-    private VBox pileOptions;
+    private StackPane pileOptions;
     @FXML
     private VBox cardPlayersContainer;
     @FXML
@@ -54,6 +54,7 @@ public class GameController {
     @FXML
     private ListView<String> playerListView;
     private Boolean endgame = false;
+    private String tdbImagePath;
 
     public void initialize() {
         board = new Board();
@@ -150,21 +151,6 @@ public class GameController {
         }
         return endGame;
     }
-
-
-
-    public void displayRanking(List<Player> players) {
-        ObservableList<String> playerItems = FXCollections.observableArrayList();
-
-        for (int i = 0; i < players.size(); i++) {
-            Player player = players.get(i);
-            String playerInfo = (i + 1) + ". " + player.getName() + " - TdB: " + player.getTdb();
-            playerItems.add(playerInfo);
-        }
-
-        playerListView.setItems(playerItems);
-    }
-
 
 
     public void playMusic() {
@@ -283,12 +269,18 @@ public class GameController {
             Rectangle rectangle = new Rectangle(100, 50);
             rectangle.setFill(Color.WHITE);
             rectangle.setStroke(Color.BLACK);
-
             String tdbImagePath = getClass().getResource("/image/tdb.png").toExternalForm();
+            if (player.getName().equals("Luc")) {
+                tdbImagePath = getClass().getResource("/image/pac.png").toExternalForm();
+            } else if (player.getName().equals("Max")) {
+                tdbImagePath = getClass().getResource("/image/LucarioIcon.png").toExternalForm();
+            }
+
             Image tdbImage = new Image(tdbImagePath);
             ImageView tdbImageView = new ImageView(tdbImage);
             tdbImageView.setFitWidth(13);
             tdbImageView.setFitHeight(13);
+
 
             Label tdbLabel = new Label(": " + player.getTdb());
             HBox tdbBox = new HBox(tdbImageView, tdbLabel);
